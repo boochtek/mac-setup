@@ -1,5 +1,12 @@
-TODO
-====
+# TODO
+
+## ASAP
+
+
+## Soon
+
+
+## Old
 
 * Make `locate` usable:
     * sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
@@ -7,8 +14,8 @@ TODO
 * See what's missing from the Ansible branch.
 
 
-Probably really old stuff
--------------------------
+## Really old stuff
+
 * Fix sublime setup
   * Add more plugins
     * AdvancedNewFile with show_files enabled.
@@ -22,9 +29,7 @@ Probably really old stuff
 * Check that everything worked as expected
 * brew install --quiet --cask --no-quarantine macs-fan-control # (or smcfancontrol)
 
-
-Utilities
----------
+## Utilities
 
 - Write a program to determine changes to `defaults` (and other config).
   - Probably make it a new sub-command of defaults+ command.
