@@ -57,7 +57,7 @@ These may be in Karabiner, or maybe just Mac key bindings.
 - Pull config_files from GitHub.
 - Pull config_files.PRIVATE from wherever it belongs.
 
-## Probably really old stuff
+## Really old stuff
 
 - Fix sublime setup
     - Add more plugins
@@ -71,3 +71,10 @@ These may be in Karabiner, or maybe just Mac key bindings.
 - Yosemite updates
 - Check that everything worked as expected
 - brew install --quiet --cask macs-fan-control # (or smcfancontrol)
+
+## Old
+
+- Make `locate` usable:
+    - sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+- hardware/printer.sh
+- See what's missing from the Ansible branch.
