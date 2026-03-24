@@ -1,7 +1,28 @@
 #!/bin/bash
 
+## 1Password
+
+# Install 1Password app and CLI.
 brew install --quiet --cask --no-quarantine 1password
 brew install --quiet 1password-cli
+
+# Verify CLI installation.
+if command -v op &> /dev/null; then
+    echo "1Password CLI installed: $(op --version)"
+else
+    echo "WARNING: 1Password CLI (op) not found in PATH after installation."
+    echo "  You may need to restart your shell or add Homebrew to PATH."
+fi
+
+# Enable Touch ID for CLI (requires 1Password app with Touch ID already enabled).
+# See: https://developer.1password.com/docs/cli/about-biometric-unlock/
+OP_BIOMETRIC_UNLOCK_ENABLED_FILE="$HOME/.config/op/biometric_unlock_enabled"
+if [[ ! -f "$OP_BIOMETRIC_UNLOCK_ENABLED_FILE" ]]; then
+    mkdir -p "$HOME/.config/op"
+    echo "true" > "$OP_BIOMETRIC_UNLOCK_ENABLED_FILE"
+    echo "Enabled biometric unlock for 1Password CLI."
+    echo "  Make sure Touch ID is enabled in 1Password app: Settings > Security > Touch ID."
+fi
 
 # TODO: Use this for virtualOS too.
 mas_install() {
@@ -14,8 +35,6 @@ mas_install() {
 
 mas_install '1Password for Safari'
 
-
 # TODO: Install other browser extensions.
 # TODO: Document using 1Password's SSH agent.
-# TODO: Integrate CLI. Figure out where it got installed to.
-# TODO: Allow CLI to use Touch ID.
+# See: https://developer.1password.com/docs/ssh/
