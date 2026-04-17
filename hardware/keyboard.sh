@@ -24,7 +24,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -boolean false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -boolean true
 
 
-brew install --quiet --cask --no-quarantine karabiner-elements # Requires password.
+brew install --quiet --cask karabiner-elements # Requires password.
 sudo mkdir -p /usr/local/bin
 cat > /usr/local/bin/karabiner <<'EOF' # Can’t soft-link the binary. See https://github.com/tekezo/Karabiner/issues/194
 #!/bin/sh

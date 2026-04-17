@@ -3,7 +3,7 @@
 ## 1Password
 
 # Install 1Password app and CLI.
-brew install --quiet --cask --no-quarantine 1password
+brew install --quiet --cask 1password
 brew install --quiet 1password-cli
 
 # Verify CLI installation.

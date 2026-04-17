@@ -20,7 +20,7 @@ killall Finder
 
 
 # Install Rectangle window manager.
-brew install --cask --no-quarantine --quiet rectangle
+brew install --cask --quiet rectangle
 echo "TODO: Automate: System Settings > Privacy & Security > Accessibility > ENABLE Rectangle"
 open -a Rectangle
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Launch on login"

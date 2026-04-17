@@ -1,4 +1,4 @@
-brew install --quiet --cask --no-quarantine rubymine
+brew install --quiet --cask rubymine
 
 dockutil --add  '/Applications/RubyMine.app' --replacing 'RubyMine' --after 'Visual Studio Code' &> /dev/null
 

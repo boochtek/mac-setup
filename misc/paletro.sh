@@ -12,7 +12,7 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 
 
 # Install [Paletro](https://appmakes.io/paletro)
-brew install --quiet --cask --no-quarantine paletro
+brew install --quiet --cask paletro
 
 # Interactive!
 echo "Paletro installed. Opening..."
@@ -34,6 +34,6 @@ defaults write io.appmakes.Paletro-setapp startOnLogin -bool TRUE
 
 # KeyClu: Hit `Command ⌘` twice and hold to list all shortcuts in any app.
 # Shortcuts are listed by the menu items they are associated with.
-brew uninstall --quiet --cask --no-quarantine keyclu
+brew uninstall --quiet --cask keyclu
 open -a KeyClu
 defaults write com.0804Team.KeyClu launchAtLogin -bool TRUE

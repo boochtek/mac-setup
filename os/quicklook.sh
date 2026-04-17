@@ -11,14 +11,14 @@ echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
 sudo -v
 
 # Preview Markdown files.
-brew install --quiet --cask --no-quarantine qlmarkdown
+brew install --quiet --cask qlmarkdown
 
 # Preview source code files with syntax highlighting.
 # TODO: Customize. See https://github.com/sbarex/SourceCodeSyntaxHighlight#install-with-homebrew-cask.
-brew install --quiet --cask --no-quarantine syntax-highlight
+brew install --quiet --cask syntax-highlight
 
 # Preview plain text files without a file extension (README, CHANGELOG, etc.).
-brew install --quiet --cask --no-quarantine qlstephen
+brew install --quiet --cask qlstephen
 # Have QLStephen handle plist files.
 plutil -insert CFBundleDocumentTypes.0.LSItemContentTypes.0 -string 'com.apple.property-list' "$HOME/Library/QuickLook/QLStephen.qlgenerator/Contents/Info.plist"
 # Don't let QLColorCode handle plist files.
@@ -27,31 +27,31 @@ index=$(plutil -convert json -r "$HOME/Library/QuickLook/QLColorCode.qlgenerator
 plutil -remove "CFBundleDocumentTypes.0.LSItemContentTypes.$index" "$HOME/Library/QuickLook/QLColorCode.qlgenerator/Contents/Info.plist"
 
 # Preview source code files for various programming languages, with syntax highlighting.
-brew install --quiet --cask --no-quarantine qlcolorcode
+brew install --quiet --cask qlcolorcode
 
 # Preview JSON files.
-brew install --quiet --cask --no-quarantine quicklook-json
+brew install --quiet --cask quicklook-json
 
 # Preview CSV files.
-brew install --quiet --cask --no-quarantine quicklook-csv
+brew install --quiet --cask quicklook-csv
 
 # Preview diffs.
-brew install --quiet --cask --no-quarantine qlprettypatch
+brew install --quiet --cask qlprettypatch
 
 # Preview archives (ZIP, tar, gzip, bzip2, ARJ, LZH, ISO, etc.).
-brew install --quiet --cask --no-quarantine betterzip
+brew install --quiet --cask betterzip
 
 # Preview SSL/X509 certificate files (CRT, PEM, DER, etc.). (No longer available via Homebrew.)
-#brew install --quiet --cask --no-quarantine cert-quicklook
+#brew install --quiet --cask cert-quicklook
 
 # Preview WEBP images.
-brew install --quiet --cask --no-quarantine webpquicklook
+brew install --quiet --cask webpquicklook
 
 # Preview most video formats.
-brew install --quiet --cask --no-quarantine qlvideo
+brew install --quiet --cask qlvideo
 
 # Preview AVIF images.
-brew install --quiet --cask --no-quarantine avifquicklook
+brew install --quiet --cask avifquicklook
 
 # Reload QuickLook daemon, so new plugins will work.
 qlmanage -r

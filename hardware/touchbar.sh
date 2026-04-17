@@ -8,7 +8,7 @@
 # AUTOMATE: Settings: Hide title bar, Automatically check for updates.
 
 # Install app to use Touch Bar to switch between apps.
-brew install --quiet --cask --no-quarantine touchswitcher
+brew install --quiet --cask touchswitcher
 
 # TODO: Install https://github.com/henryefranks/Pac-Bar.
 

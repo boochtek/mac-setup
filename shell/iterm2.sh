@@ -3,7 +3,7 @@
 source "${BASH_SOURCE%/*}/../os/dock.sh"
 
 # Install iTerm2.
-brew install --quiet --cask --no-quarantine iterm2
+brew install --quiet --cask iterm2
 
 # Download shell integration. Shell startup scripts should source the appropriate script.
 ITERM_SHELL_INTEGRATION="${ITERM_SHELL_INTEGRATION-$XDG_DATA_HOME/iterm2}"

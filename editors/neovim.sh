@@ -4,7 +4,7 @@
 brew install --quiet neovim
 
 ## Install VimR, a GUI for Neovim.
-brew install --quiet --cask --no-quarantine vimr
+brew install --quiet --cask vimr
 
 # Install (optional) prerequisites for LazyVim and Telescope.
 brew install --quiet lazygit

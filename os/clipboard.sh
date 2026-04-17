@@ -6,7 +6,7 @@ IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 
 # DID NOT LIKE: Use Maccy clipboard manager.
-# brew install --quiet --cask --no-quarantine maccy
+# brew install --quiet --cask maccy
 # open -a Maccy
 
 
@@ -28,7 +28,7 @@ fi
 
 
 # DID NOT LIKE THAT MUCH: Install PopClip. NOTE: This is a paid app ($17) that can also be found on the App Store.
-# brew install --quiet --cask --no-quarantine popclip
+# brew install --quiet --cask popclip
 # open -a PopClip
 # Manual configuration.
 #   Click on the icon in the Toolbar

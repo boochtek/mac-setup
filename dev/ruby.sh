@@ -35,7 +35,7 @@ done
 
 # Install some gems for ONLY the latest Ruby.
 mise shell ruby $CURRENT_RUBY_VERSION
-brew install --quiet --cask --no-quarantine wkhtmltopdf
+brew install --quiet --cask wkhtmltopdf
 gem install kramdown
 gem install rsense
 gem install ruby-beautify

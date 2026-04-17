@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Install and configure Raycast. NOTE: You'll need an API key for the AI stuff.
-brew install --quiet --cask --no-quarantine raycast
+brew install --quiet --cask raycast
 
 echo "Set up Raycast according to your preferences."
 echo "Set to launch at login."

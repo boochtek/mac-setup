@@ -2,7 +2,7 @@
 
 # Despite deciding on the Elgato foot pedals, I prefer using Better Touch Tool over the Stream Deck app.
 # NOTE: You'll be prompted for your password.
-# brew install --quiet --cask --no-quarantine elgato-stream-deck
+# brew install --quiet --cask elgato-stream-deck
 
 # NOTE: The app will open, and will likely prompt you to install an update.
 # NOTE: You'll get a prompt that the app (from "Corsair") will run in the background.
@@ -10,7 +10,7 @@
 
 
 # BetterTouchTool
-brew install --quiet --cask --no-quarantine bettertouchtool
+brew install --quiet --cask bettertouchtool
 open -a BetterTouchTool
 # Manually:
 #   Check for Updates

@@ -9,7 +9,7 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 [[ -n "${DEBUG+unset}" ]] && set -x
 
 
-brew install --quiet --cask --no-quarantine slack
+brew install --quiet --cask slack
 
 dockutil --add '/Applications/Slack.app' --replacing 'Slack' --position beginning &> /dev/null
 

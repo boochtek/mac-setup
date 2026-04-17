@@ -25,7 +25,7 @@ require-brew() {
 
 require-cask() {
     if ! brew list --cask --versions "$1" >/dev/null; then
-        brew install --quiet --cask --no-quarantine "$1"
+        brew install --quiet --cask "$1"
     fi
 }
 

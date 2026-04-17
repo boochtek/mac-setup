@@ -10,7 +10,7 @@ source 'dockutil.sh'
 
 
 # Install Sublime Text 3
-brew install --quiet --cask --no-quarantine sublime-text3
+brew install --quiet --cask sublime-text3
 
 # The Homebrew installation provides a binary named `subl`. We'll provide a couple other names for that.
 ln -s subl /usr/local/bin/sublime
