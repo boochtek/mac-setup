@@ -98,12 +98,12 @@ brew install --quiet jless
 
 # Install some linting tools.
 brew install proselint # English prose
-npm install --global markdownlint-cli
+brew install --quiet markdownlint-cli2
 brew install libxml2 # xmllint
-npm install --global jsonlint jsonlint
+# npm install --global jsonlint
 brew install yamllint
 npm install --global eslint
-brew install ansible-lint
+brew install --quiet ansible-lint
 
 # Install some newer tools that Mac OS X already has.
 brew install --quiet diffutils
@@ -138,11 +138,11 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow 'SHOWFULLNAME' -b
 ### Time options: Display the time with seconds: on
 ### Date options: Show the day of the week: on
 ### Date options: Show date: on
-defaults write com.apple.menuextra.clock 'DateFormat' -string 'EEE MMM d   h:mm:ss a'
+#defaults write com.apple.menuextra.clock 'DateFormat' -string 'EEE MMM d   h:mm:ss a'
 
 # Qt is a cross-platform UI toolkit.
-brew install qt
-brew install qt5
+#brew install qt
+#brew install qt5
 
 ## Enable debugging menu in App Store (Not working for me in 10.10.5).
 sudo defaults write com.apple.appstore ShowDebugMenu -bool true
@@ -157,4 +157,5 @@ sudo defaults write com.apple.appstore ShowDebugMenu -bool true
 defaults write com.apple.ActivityMonitor ShowCategory -int 0
 
 # Prefsniff will show changes to preferences files, which can then be used with `defaults`.
-python3 -m pip install prefsniff
+#python3 -m pip install prefsniff
+# TODO: I think `plist` is the better alternative now.
