@@ -6,7 +6,7 @@ set -euo pipefail; IFS=$'\n\t'
 
 
 # Install UTM system emulator and virtual machine.
-brew install --quiet --cask --no-quarantine utm
+brew install --quiet --cask utm
 open -a UTM
 
 
@@ -38,3 +38,7 @@ wget -P ~/Downloads/ $DEBIAN_MIRROR/debian-cd/current/arm64/iso-dvd/debian-12.1.
 virtualOS_ID="$(mas search virtualOS | grep virtualOS | awk '{ print $1 }')"
 mas purchase "${virtualOS_ID}"
 mas install "${virtualOS_ID}"
+
+
+# Lume is a CLI for using Apple's Virtualization Framework. It's part of CUA (Computer Use Agent).
+brew install --quiet lume
