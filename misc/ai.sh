@@ -27,11 +27,13 @@ brew install --quiet --cask ollama
 
 # Pull local models for agentic coding workflows.
 # Models are inert on disk (~100GB total); only loaded models consume RAM.
-ollama pull gemma4          # Google Gemma 4 31B dense — deep reasoning
+ollama pull gemma4:31b      # Google Gemma 4 31B dense — deep reasoning
 ollama pull gemma4:26b      # Google Gemma 4 26B MoE (4B active) — fast daily driver
 ollama pull gemma4:e4b      # Google Gemma 4 E4B — tiny/instant for quick tasks
 ollama pull devstral        # Mistral Devstral 24B — agentic SWE, 68% SWE-bench
 ollama pull qwen3-coder     # Alibaba Qwen3-Coder 80B MoE (3B active) — agentic coding
+ollama pull qwen3.6         # Alibaba Qwen3.6 35B — agentic coding
+
 ollama pull glm-4.7-flash   # Zhipu GLM-4.7 Flash 30B MoE (3B active) — strong tool calling
 
 # TODO: Kimi K2.5 — #1 open-source LiveBench Coding, needs 128+ GB RAM
