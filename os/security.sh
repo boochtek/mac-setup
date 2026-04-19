@@ -27,3 +27,7 @@ sudo_add_line_to_file 'auth       sufficient     pam_tid.so' /etc/pam.d/sudo_loc
 # TODO: Add COLORTERM to env_keep list in /etc/sudoers.
 # TODO: Add these to private_config, server_config, openwrt_config.
 # TODO: Add these to the `env_keep` list in `/etc/sudoers`.
+
+
+# Haven't tried this "SSH manager" TUI yet.
+brew install --quiet lazyssh
