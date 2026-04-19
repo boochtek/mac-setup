@@ -16,6 +16,13 @@ brew install --quiet ranger
 # Forked from xpdf, but has a different (large, including X11 libs) set of dependencies that I find preferable.
 brew install --quiet poppler
 
+# Coherent PDF Command Line Tools.
+brew install --quiet cpdf
+
+# PDF viewer for terminals that support images. Hot reloads on file changes.
+# NOTE: This package has a **lot** of dependencies, including X11.
+brew install --quiet fancy-cat
+
 # NOTE: Requires Java (installs openjdk) but can do OCR and convert "thousands" of file types.
 brew install --quiet tika
 
