@@ -3,7 +3,7 @@
 ## Configure Twitter.
 
 ## NOTE: The Twitter app is installed via the Mac App Store.
-
+## NOTE: We don't use Twitter very much, since it became X.
 
 # Disable smart quotes as it’s annoying for tweets with code snippets.
 defaults write com.twitter.twitter-mac AutomaticQuoteSubstitutionEnabled -bool false

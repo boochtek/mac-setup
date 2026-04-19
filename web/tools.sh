@@ -19,3 +19,7 @@ brew install --quiet curlie
 
 # XH is another modern replacement for HTTPie.
 brew install --quiet xh
+
+# Convert from HTML to Markdown. See https://html-to-markdown.com/.
+# TODO: Also consider [Breakdance](https://breakdance.github.io/breakdance/docs.html).
+brew install --quiet html2markdown
