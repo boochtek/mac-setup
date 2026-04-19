@@ -17,7 +17,7 @@ git lfs install
 brew install --quiet lazygit
 
 # Install some credential helpers. NOTE: Prompts for sudo password.
-brew install --quiet --cask --no-quarantine git-credential-manager
+brew install --quiet --cask git-credential-manager
 brew install --quiet git-credential-oauth
 
 # Suggested by Olivier Lacan https://twitter.com/olivierlacan/status/646741176922587141
@@ -58,7 +58,6 @@ git config --global merge.semantic.driver 'git-semantic-merge-driver %O %A %B %L
 # Add catch-all merge driver to global gitattributes (idempotent).
 GITATTRIBUTES="${XDG_CONFIG_HOME:-$HOME/.config}/git/attributes"
 if ! grep -q 'merge=semantic' "$GITATTRIBUTES" 2>/dev/null; then
-    # Insert at the top. In gitattributes, later lines override earlier ones,
     # so file-specific entries (e.g. Gemfile.lock) that appear later will take precedence.
     sed -i '' '1i\
 # Use semantic merge driver (weave/mergiraf) for all files, unless overridden.\

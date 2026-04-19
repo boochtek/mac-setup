@@ -3,11 +3,17 @@
 ./xcode.sh
 ./git.sh
 ./github.sh
-./asdf.sh
+#./asdf.sh
+./mise.sh
 ./docker.sh
+./js.sh
 ./ruby.sh
 ./java.sh
+./rust.sh
 ./elm.sh
+./roc.sh
+./python.sh
+./llvm.sh
 ./crystal.sh
 ./racket.sh
 ./nim.sh
@@ -17,6 +23,7 @@
 ./io.sh
 ./clojure.sh
 ./shell.sh
+./dbeaver.sh
 
 ## TODO: Lua
 ## TODO: Rust
