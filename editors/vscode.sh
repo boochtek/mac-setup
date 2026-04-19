@@ -6,7 +6,7 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 
-brew install --quiet --cask --no-quarantine visual-studio-code
+brew install --quiet --cask visual-studio-code
 
 dockutil --add '/Applications/Visual Studio Code.app' --replacing 'Visual Studio Code' --after 'iTerm' &>/dev/null
 
@@ -28,6 +28,10 @@ install-code-extension() {
 
 # AI
 install-code-extension github.copilot # Requires a Copilot account in GitHub. Must sign into GitHub through VS Code.
+install-code-extension supermaven.supermaven # NOTE: Conflicts with Copilot. Requires a Supermaven account.
+install-code-extension Google.geminicodeassist # NOTE: Conflicts with Copilot.
+install-code-extension Codeium.codeium # AKA Windsurf. NOTE: Conflicts with Copilot.
+install-code-extension augment.vscode-augment # NOTE: Conflicts with Copilot. Requires an Augment account.
 
 # Voice
 install-code-extension pokey.cursorless
@@ -58,6 +62,9 @@ install-code-extension Gruntfuggly.todo-tree
 install-code-extension esbenp.prettier-vscode
 install-code-extension ms-vscode.makefile-tools
 install-code-extension bun913.easy-date-insert # Insert today's date.
+install-code-extension iliazeus.vscode-ansi # ANSI Text: Open Preview to display ANSI colors.
+install-code-extension orepor.color-tabs-vscode-ext # Editor tabs get colors based on categories.
+install-code-extension IBM.output-colorizer # Colorize output panels.
 
 # Themes
 install-code-extension akamud.vscode-theme-onelight
@@ -73,6 +80,7 @@ install-code-extension GitHub.vscode-pull-request-github
 install-code-extension mhutchie.git-graph
 install-code-extension GitLab.gitlab-workflow
 install-code-extension github.vscode-github-actions
+install-code-extension waderyan.gitblame
 
 # Markdown
 install-code-extension bierner.github-markdown-preview
@@ -80,12 +88,19 @@ install-code-extension DavidAnson.vscode-markdownlint
 install-code-extension shd101wyy.markdown-preview-enhanced
 install-code-extension budparr.language-hugo-vscode # Syntax highlighting and snippets for Hugo
 install-code-extension rusnasonov.vscode-hugo       # Build and serve Hugo sites
+install-code-extension FelixZeller.markdown-oxide   # Obsidian-like features for Markdown files. WARNING: Set `hover = false` in `~/.config/moxide/settings.toml`!
+# Markdown Extended suggests `bierner.markdown-mermaid`, `bierner.markdown-preview-github-styles`, and `goessner.mdmath`.
+install-code-extension jebbs.markdown-extended      # Uses Markdown-it for additional features, like ==highlight mark==
+                            # TODO: Consider disabling extensions w/ `"markdownExtended.disabledPlugins": ["toc", "container"]`
+                            # `"markdownExtended.pdfFormat": "US Letter"`
+install-code-extension bierner.markdown-preview-github-styles
+install-code-extension bierner.markdown-mermaid
 
 # Ruby
 install-code-extension Shopify.ruby-lsp
 install-code-extension Shopify.ruby-extensions-pack
 install-code-extension bung87.rails
-install-code-extension castwide.solargraph
+# install-code-extension castwide.solargraph
 install-code-extension KoichiSasada.vscode-rdbg
 install-code-extension karunamurti.haml
 install-code-extension LoranKloeze.ruby-rubocop-revived
@@ -95,6 +110,10 @@ install-code-extension aki77.haml-lint # NOTE: Requires `gem install haml-lint`.
 install-code-extension kaiwood.endwise
 install-code-extension soutaro.rbs-syntax
 install-code-extension soutaro.steep-vscode
+install-code-extension manuelpuyol.erb-linter
+install-code-extension aki77.rails-db-schema # Auto-complete model attributes, schema tables, etc.
+install-code-extension aki77.rails-routes
+install-code-extension bung87.vscode-gemfile # Easy access to gem docs.
 
 # JavaScript, TypeScript, and related frameworks
 install-code-extension robole.javascript-snippets
@@ -172,7 +191,7 @@ install-code-extension vscjava.vscode-java-pack
 # TODO: Kotlin
 
 # Haskell, Elm, OCAML/ReasonML
-install-code-extension ocamllabs.ocaml-platform
+# install-code-extension ocamllabs.ocaml-platform
 install-code-extension justusadam.language-haskell
 install-code-extension elmtooling.elm-ls-vscode
 
@@ -180,7 +199,7 @@ install-code-extension elmtooling.elm-ls-vscode
 install-code-extension evzen-wybitul.magic-racket
 
 # Swift
-install-code-extension sswg.swift-lang
+install-code-extension swiftlang.swift-vscode
 
 # VimL
 install-code-extension XadillaX.viml
