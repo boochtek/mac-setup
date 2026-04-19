@@ -45,3 +45,7 @@ killall SystemUIServer
 
 # Forehead is a TopNotch alternative, making the menubar black.
 echo "MANUAL: Download and install Forehead, then enable it "
+
+# Trying Hidden Bar as a replacement for Bartender and Ice.
+brew install --quiet --cask hiddenbar
+open -a 'Hidden Bar'
