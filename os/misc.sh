@@ -25,11 +25,21 @@ brew install htop
 sudo chown root:wheel "$HOMEBREW_PREFIX"/Cellar/htop/*/bin/htop
 sudo chmod u+s "$HOMEBREW_PREFIX"/Cellar/htop/*/bin/htop
 
+# BTop is an even nicer replacement for top, with a more graphical interface.
+brew install --quiet btop
+
+# A couple other replacements for top. (Binary for `bottom` is `btm`.)
+brew install --quiet glances
+brew install --quiet bottom
+
 # Tree is a nice tool to display a full directory hierarchy.
 brew install tree
 
 # [`eza`](https://eza.rocks) is a command to replace `ls`, with more useful features, including a tree view.
 brew install --quiet eza
+
+# LSD is another modern `ls` replacement, with a lot of features.
+brew install --quiet lsd
 
 # Pstree shows running processes as a tree, showing parent-child relationships.
 brew install pstree
@@ -49,6 +59,9 @@ brew install --quiet resvg
 brew install --quiet mdless
 brew install --quiet chafa
 brew install --quiet pygments
+
+# Other Markdown viewers.
+brew install --quiet glow
 
 # `bat` is a tool like `cat`, but does syntax highlighting, git diffs, paging, etc.
 # TODO: Use bat for (git) diff (`--diff`), ripgrep, man, less, .
@@ -76,8 +89,12 @@ brew install rar
 # It's nice to occasionally show a fortune.
 brew install fortune
 
-# Pretty print JSON, YAML, and XML.
-brew install --quiet jq yq xq
+# Search inside (and pretty-print) JSON, YAML, XML, Markdown.
+brew install --quiet jq yq xq mdq
+# TUI playground for jq.
+brew install --quiet jqp
+# JSON viewer with paging, syntax highlighting, and interactive collapse/expand.
+brew install --quiet jless
 
 # Install some linting tools.
 brew install proselint # English prose
