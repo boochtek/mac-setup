@@ -30,15 +30,18 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 # TODO: In Keyboard preferences, Keyboard pane, CHECK “Show Keyboard & Character Viewers in menu bar”.
 
-
 ## Allow MenuBar and menuextra changes to take effect.
 killall SystemUIServer
 
-# TopNotch turns the menu bar black to hide the notch on MacBook Pros.
-brew install --quiet --cask --no-quarantine topnotch
-defaults write pl.maketheweb.TopNotch hideOnBuiltInOnly -bool TRUE
-defaults write pl.maketheweb.TopNotch isEnabled -bool TRUE
-defaults write pl.maketheweb.TopNotch SUEnableAutomaticChecks -bool TRUE
-defaults write pl.maketheweb.TopNotch lastAcceptedEulaVersion 1
-defaults write pl.maketheweb.TopNotch hideMenubarIcon -bool TRUE
-open -a TopNotch
+# # TopNotch turns the menu bar black to hide the notch on MacBook Pros.
+# # TopNotch no longer works for me.
+# brew install --quiet --cask topnotch
+# defaults write pl.maketheweb.TopNotch hideOnBuiltInOnly -bool TRUE
+# defaults write pl.maketheweb.TopNotch isEnabled -bool TRUE
+# defaults write pl.maketheweb.TopNotch SUEnableAutomaticChecks -bool TRUE
+# defaults write pl.maketheweb.TopNotch lastAcceptedEulaVersion 1
+# defaults write pl.maketheweb.TopNotch hideMenubarIcon -bool TRUE
+# open -a TopNotch
+
+# Forehead is a TopNotch alternative, making the menubar black.
+echo "MANUAL: Download and install Forehead, then enable it "
