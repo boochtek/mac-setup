@@ -1,18 +1,19 @@
-MacOS Configuration
-====================
+# MacOS Setup
 
-These scripts will configure MacOS the way we want, including:
+These scripts will set up MacOS the way we want, including:
 
 * Configuring OS preferences
 * Installing applications
 * Configuring applications
 
-These scripts currently support macOS 15 (Sequoia).
+These scripts currently support macOS 26 (Tahoe).
 They have existed since at least MacOS 10.9 (Mavericks).
 
 The scripts _should_ all be idempotent.
 (That means that you can run them as many times as you want.)
 
+You will likely be prompted for your password several times.
+This is because many of the scripts use `sudo` to install various programs and settings.
 
 ## Usage
 
@@ -30,8 +31,8 @@ git --version 2>/dev/null || echo 'Follow prompts to install command line develo
             * Edit `.git/config` to change `https://github.com/` to `git@github.com:`.
 
 ~~~ shell
-git clone https://github.com/boochtek/mac_config.git
-cd mac_config
+git clone https://github.com/boochtek/mac-setup.git
+cd mac-setup
 ~~~
 
 3. Edit `ENV.sh` to define various settings.
@@ -134,7 +135,8 @@ So we can't use any features introduced in Bash 4 or later:
 diskutil list external physical
 diskutil info -all
 
-diskutil partitionDisk <device> GPT JHFS+ 'Sonoma Installer'
+DEVICE='device-name-found-above'
+diskutil partitionDisk "$DEVICE" GPT JHFS+ 'Sonoma Installer'
 
 ~~~ shell
 softwareupdate --fetch-full-installer
