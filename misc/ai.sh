@@ -14,7 +14,7 @@ brew install --quiet --cask copilot-cli
 brew install --quiet --cask claude
 
 # Claude Code
-brew install --quiet claude-code
+bun add -g @anthropic-ai/claude-code
 
 # OpenAI Codex
 brew install --quiet --cask codex
@@ -65,4 +65,4 @@ brew install --quiet chrome-devtools-mcp
 
 # Install [OpenCode](https://opencode.com/) and its dependencies.
 brew install --quiet oven-sh/bun/bun
-brew install --quiet opencode
+bun add -g opencode-ai
