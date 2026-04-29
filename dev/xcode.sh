@@ -10,3 +10,5 @@ if [[ ! -x /Library/Developer/CommandLineTools/usr/bin/clang ]]; then
     sh $XCODE_INSTALL
     rm $XCODE_INSTALL
 fi
+
+brew install --quiet xcodegen
