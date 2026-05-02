@@ -9,6 +9,12 @@ mise install bun@latest
 #           Use `mise uninstall bun 1.2.3`
 #           Maybe set an `at` to remind you to run the script again?
 
+# Define more reasonable locations for Bun packages.
+# NOTE: You'll also need these in your `bunfig.toml` or shell startup files.
+export BUN_INSTALL="${XDG_DATA_HOME:-$HOME/.local/share}/bun"
+export BUN_INSTALL_BIN="${XDG_BIN_HOME:-$HOME/.local/bin}"
+export BUN_INSTALL_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/bun"
+
 ## Install and configure latest version of Deno.
 mise install deno@latest
 
