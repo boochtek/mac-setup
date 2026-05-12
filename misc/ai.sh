@@ -13,8 +13,12 @@ brew install --quiet --cask copilot-cli
 # Anthropic Claude
 brew install --quiet --cask claude
 
-# Claude Code
-bun add -g @anthropic-ai/claude-code
+# Claude Code. Bootstrap via Homebrew, then migrate to built-in auto-updating.
+if ! readlink -f "$(command -v claude)" | grep -q "^$HOME/.local/share/claude/versions/"; then
+    brew install --quiet claude-code
+    claude install latest
+    brew uninstall claude-code
+fi
 
 # OpenAI Codex
 brew install --quiet --cask codex
