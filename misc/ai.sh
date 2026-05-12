@@ -66,7 +66,6 @@ brew install --quiet playwright-mcp
 brew install --quiet slack-mcp-server
 brew install --quiet chrome-devtools-mcp
 
-
-# Install [OpenCode](https://opencode.com/) and its dependencies.
-brew install --quiet oven-sh/bun/bun
-bun add -g opencode-ai
+# OpenCode.
+# Installed via Homebrew, but it may also auto-update itself.
+brew install --quiet opencode
