@@ -1,13 +1,18 @@
 #!/bin/bash
 
+## Configure system menu bar the way we want it.
+
 set -uo pipefail
 IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" ; exit $RC' ERR
 
-## Configure system menu bar the way we want it.
+# Install Hidden Bar to hide some items in the menu bar.
+brew install --quiet --cask hiddenbar
+echo "Starting Hidden Bar. CHECK 'Open Hidden Bar when I login'."
+open -a 'Hidden Bar'
 
-## Disable transparency in the menu bar. NOTE: Big Sur (macOS 11) seems to have dropped support for this.
+# Disable transparency in the menu bar. NOTE: Big Sur (macOS 11) seems to have dropped support for this.
 defaults write -g AppleEnableMenuBarTransparency -bool FALSE
 
 # Clock - display day of week, 12-hour time (but no AM/PM) digital clock with a non-flashing separator.
