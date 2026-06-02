@@ -38,3 +38,6 @@ wget -P ~/Downloads/ $DEBIAN_MIRROR/debian-cd/current/arm64/iso-dvd/debian-12.1.
 virtualOS_ID="$(mas search virtualOS | grep virtualOS | awk '{ print $1 }')"
 mas purchase "${virtualOS_ID}"
 mas install "${virtualOS_ID}"
+
+# Apple Containers, similar to Docker but built on top of Apple's virtualization framework.
+brew install --quiet container
