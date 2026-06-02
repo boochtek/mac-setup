@@ -16,10 +16,6 @@ git lfs install
 # LazyGit provides a TUI that makes some git operations easier.
 brew install --quiet lazygit
 
-# Install some credential helpers. NOTE: Prompts for sudo password.
-brew install --quiet --cask git-credential-manager
-brew install --quiet git-credential-oauth
-
 # Suggested by Olivier Lacan https://twitter.com/olivierlacan/status/646741176922587141
 git config --global credential.helper osxkeychain
 
@@ -30,7 +26,7 @@ brew install --quiet weave
 brew install --quiet mergiraf
 git config --global merge.conflictStyle zdiff3
 mkdir -p ~/.local/bin
-cat > ~/.local/bin/git-semantic-merge-driver << 'SCRIPT'
+cat >~/.local/bin/git-semantic-merge-driver <<'SCRIPT'
 #!/bin/sh
 # Semantic merge driver for git.
 # Tries weave, then mergiraf, then falls back to git's built-in line-based merge.
@@ -67,6 +63,4 @@ if ! grep -q 'merge=semantic' "$GITATTRIBUTES" 2>/dev/null; then
 fi
 
 # Make diffs more human-readable.
-brew install --quiet diff-so-fancy
 brew install --quiet git-delta
-brew install --quiet difftastic

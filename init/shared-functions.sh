@@ -30,7 +30,7 @@ require-cask() {
 }
 
 require-gem() {
-    if [[ gem list --quiet --local --installed "^$1\$" > /dev/null ]]; then
+    if command -v gem && gem list --quiet --local --installed "^$1\$" >/dev/null; then
         echo gem install "$1"
     fi
 }

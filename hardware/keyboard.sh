@@ -14,19 +14,23 @@ defaults write com.apple.BezelServices kDim -bool true
 # Turn off keyboard illumination when computer is not used for 5 minutes.
 defaults write com.apple.BezelServices kDimTime -int 300
 
-
 # Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs).
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-
 
 # Disable automatic fancy quotes and dashes (because I don't want those changes when I'm coding).
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -boolean false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -boolean true
 
+# Cache the sudo password. Doesn't help. :(
+# sudo -v
 
+# Install Karabiner-Elements.
 brew install --quiet --cask karabiner-elements # Requires password.
+
+# Create a symlink to the Karabiner CLI, so we can use it in scripts.
 sudo mkdir -p /usr/local/bin
-cat > /usr/local/bin/karabiner <<'EOF' # Can’t soft-link the binary. See https://github.com/tekezo/Karabiner/issues/194
+# Can’t soft-link the binary. See https://github.com/tekezo/Karabiner/issues/194
+sudo tee /usr/local/bin/karabiner <<'EOF'
 #!/bin/sh
 /Library/Application\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli $@
 EOF
@@ -35,7 +39,6 @@ chmod +x /usr/local/bin/karabiner
 # Start Karabiner
 # TODO: Had to manually go into Security & Privacy preferences, Privacy Tab, Accessibility, and enable Karabiner_AXNotifier.
 open -a Karabiner-Elements
-
 
 defaults write -app Karabiner isStatusWindowEnabled 0
 # Hide Karabiner menubar icon.
@@ -47,17 +50,14 @@ if $IS_LAPTOP; then
 fi
 karabiner enable remap.pc_application2controlL # Or remap.jis_pc_application2controlL_capslock, if you want CapsLock by itself to work as CapsLock.
 
-
 # TODO: Enable Fn-to-Insert mappings if not on laptop (or if we can identify Apple keyboard with numeric keypad. Better yet, only enable them in the XML file for that keyboard device.
 
 # TODO: For desktop keyboard, would like to use PC Style Copy/Paste #3, but that would require changing Fn key to Insert key. (And I don’t think I’ve been able to figure out how to do that.)
-
 
 # TODO: Can we get OPTION_R or OPTION_L by itself to do ^F2 (move focus to menu bar in Keyboard/Shortcuts/Keyboard)? NOTE: I usually remap that to Command+/.
 
 # TODO: F2 in Finder to rename, but not if in a text field.
 # TODO: Enter in Finder to open, but not if in a text field.
-
 
 # TODO: Check “Use all F1, F2, etc. keys as standard function keys.
 # TODO: Adjust keyboard brightness in low light; turn off when computer not used for: 5 min
@@ -67,7 +67,6 @@ karabiner enable remap.pc_application2controlL # Or remap.jis_pc_application2con
 #			http://apple.stackexchange.com/questions/13598/updating-modifier-key-mappings-through-defaults-command-tool#comment103161_88096
 #			http://superuser.com/questions/590526/switch-function-keys-on-os-x-via-via-command-line
 
-
 ## Configuration of my Drop (Massdrop) CTRL keyboard.
 # NOTE: QMK has a ton of dependencies; Homebrew will take a while to download/compile them.
 brew install qmk/qmk/qmk
@@ -76,7 +75,6 @@ brew install qmk/qmk/qmk
 wget https://github.com/Massdrop/mdloader/releases/download/1.0.3/mdloader_mac -O /usr/local/sbin/mdloader
 chmod 0555 /usr/local/sbin/mdloader
 chgrp admin /usr/local/sbin/mdloader
-
 
 ## Key bindings (shortcuts) for apps.
 
@@ -96,9 +94,6 @@ defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "^\
 # TODO: Might have to try \U21E5 instead of \t. Might also need to limit this to Terminal.
 defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "$(echo -e '^\t')"
 defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "$(echo -e '^$\t')"
-
-
-
 
 # TODO: Allow Ctrl+Enter and/or Command+Enter to send emails (Command+Shift+D in Mac Mail).
 
