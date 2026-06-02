@@ -19,9 +19,9 @@ export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 
 # Install Homebrew itself, if it's not already installed.
 # Non-interactive, based on [https://github.com/Homebrew/homebrew/blob/go/install].
-if ! command-exists "${HOMEBREW_PREFIX}/bin/brew" ; then
+if ! command-exists "${HOMEBREW_PREFIX}/bin/brew"; then
 
-    if ! sudo -v ; then
+    if ! sudo -v; then
         echo 'You need sudo access to install Homebrew!'
         return 1
     fi
@@ -48,15 +48,24 @@ if ! command-exists "${HOMEBREW_PREFIX}/bin/brew" ; then
 
     # Download the latest version of Homebrew using git.
     (
-        cd $HOMEBREW_PREFIX
+        cd "$HOMEBREW_PREFIX" || exit 1
         git init -q
         git remote add origin https://github.com/Homebrew/brew
         git fetch origin master:refs/remotes/origin/master -n
         git reset --hard origin/master
     )
+
+    # NOTE: If none of this works, try:
+    #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 else
     brew update
 fi
 
 # Check for configuration issues.
 brew doctor
+
+# Install command-not-found support, to tell us how to install missing commands.
+brew tap homebrew/command-not-found
+
+## Fix permissions on Homebrew share directory, so Zsh completion doesn't complain.
+chmod g-w /opt/homebrew/share

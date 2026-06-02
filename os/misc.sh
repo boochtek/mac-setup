@@ -128,10 +128,11 @@ brew install qt
 brew install qt5
 
 ## Enable debugging menu in App Store (Not working for me in 10.10.5).
-sudo defaults write com.apple.appstore ShowDebugMenu -bool true
+# sudo defaults write com.apple.appstore ShowDebugMenu -bool true
 
 ## TODO: Should we get (updated) GNU utilities?
-# brew install coreutils
+# Yes! Coreutils includes `nproc`, which I've seen used in scripts.
+brew install coreutils
 # brew install findutils
 # brew tap homebrew/dupes
 # brew install homebrew/dupes/grep

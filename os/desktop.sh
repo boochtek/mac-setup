@@ -18,10 +18,12 @@ mkdir -p "$HOME/Pictures/Backgrounds"
 # Restart Finder so settings will take effect.
 killall Finder
 
-
 # Install Rectangle window manager.
 brew install --cask --quiet rectangle
 echo "TODO: Automate: System Settings > Privacy & Security > Accessibility > ENABLE Rectangle"
 open -a Rectangle
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Launch on login"
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Check for updates automatically"
+echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Remove keyboard shortcut restrictions"
+echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Move cursor along with window across displays"
+echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Double-click window title bar to maximize/restore"
