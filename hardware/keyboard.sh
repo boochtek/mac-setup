@@ -34,7 +34,13 @@ sudo tee /usr/local/bin/karabiner <<'EOF'
 #!/bin/sh
 /Library/Application\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli $@
 EOF
-chmod +x /usr/local/bin/karabiner
+sudo chmod +x /usr/local/bin/karabiner
+
+# Tell user how to manually give Karabiner-Elements the proper access.
+echo "Please go to System Preferences > Privacy & Security > Privacy > Accessibility and enable Karabiner-Elements."
+echo "Please go to System Preferences > General > Login Items & Extensions > Allow in the Background > ENABLE both Karabiner items."
+echo "Please go to System Preferences > General > Login Items & Extensions > Extensions > click on $(ⓘ) next to Driver Extensions > ENABLE Karabiner virtual HID device driver."
+return 0
 
 # Start Karabiner
 # TODO: Had to manually go into Security & Privacy preferences, Privacy Tab, Accessibility, and enable Karabiner_AXNotifier.
