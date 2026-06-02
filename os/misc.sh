@@ -160,3 +160,6 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 # Prefsniff will show changes to preferences files, which can then be used with `defaults`.
 #python3 -m pip install prefsniff
 # TODO: I think `plist` is the better alternative now.
+
+# Disable Liquid Glass tab styling.
+defaults write -g NSSolariumWindowTabs -bool NO
