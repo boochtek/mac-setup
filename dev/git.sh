@@ -65,3 +65,6 @@ fi
 
 # Make diffs more human-readable.
 brew install --quiet git-delta
+
+# Used to "diff" images.
+brew install --quiet exiftool
