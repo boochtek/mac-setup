@@ -35,6 +35,8 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 # TODO: In Keyboard preferences, Keyboard pane, CHECK “Show Keyboard & Character Viewers in menu bar”.
 
+# Disable auto-adding icons to menu items. (They're terrible inconsistent UX.)
+defaults write NSGlobalDomain NSMenuEnableActionImages -bool false
 
 ## Allow MenuBar and menuextra changes to take effect.
 killall SystemUIServer
