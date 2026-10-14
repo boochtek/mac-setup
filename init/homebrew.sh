@@ -54,12 +54,12 @@ if ! command-exists "${HOMEBREW_PREFIX}/bin/brew"; then
         cd "$HOMEBREW_PREFIX" || exit 1
         git init -q
         git remote add origin https://github.com/Homebrew/brew
-        git fetch origin master:refs/remotes/origin/master -n
-        git reset --hard origin/master
+        git fetch origin main:refs/remotes/origin/main -n
+        git reset --hard origin/main
     )
 
     # NOTE: If none of this works, try:
-    #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/main/install.sh)"
 else
     brew update
 fi
