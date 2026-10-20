@@ -24,9 +24,10 @@ defaults write com.apple.Dock autohide-delay -float 0
 brew install --quiet dockutil
 
 ## Remove rarely-used Dock items.
-for dock_item in Siri Launchpad Contacts Notes Reminders Maps Messages FaceTime iBooks Podcasts TV News Freeform Keynote Numbers Pages ; do
-    dockutil --remove "$dock_item" &> /dev/null
+for dock_item in Apps Launchpad Contacts Notes Reminders Maps Messages FaceTime iBooks Podcasts TV News Games Freeform Keynote Numbers Pages Phone ; do
+    dockutil --remove "$dock_item" &> /dev/null || true
 done
+dockutil --remove 'App Store' &> /dev/null || true
 
 ## Add Activity Monitor to the Dock.
 dockutil --find "Activity Monitor" &> /dev/null \
