@@ -7,7 +7,7 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 [[ -n "${DEBUG+unset}" ]] && set -x
 
 # Anthropic Claude.
-brew install --quiet --cask --no-quarantine claude
+brew install --quiet --cask claude
 open -a Claude
 dockutil --add '/Applications/Claude.app' --replacing 'Claude' --after 'ChatGPT' &>/dev/null
 
@@ -36,7 +36,7 @@ else
 fi
 
 # OpenAI Codex CLI.
-brew install codex-cli
+#brew install codex-cli
 
 # [OpenCode](https://opencode.com/) and its dependencies.
 brew install --quiet oven-sh/bun/bun
