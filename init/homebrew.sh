@@ -15,6 +15,8 @@ else
 fi
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_AUTO_UPDATE=1
+# Homebrew 7 asks before installing anything; don't stop to ask.
+export HOMEBREW_NO_ASK=1
 export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 
 # Install Homebrew itself, if it's not already installed.
