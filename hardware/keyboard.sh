@@ -41,9 +41,9 @@ brew-install-cask karabiner-elements # Requires password.
 # Create a symlink to the Karabiner CLI, so we can use it in scripts.
 sudo mkdir -p /usr/local/bin
 # Can’t soft-link the binary. See https://github.com/tekezo/Karabiner/issues/194
-sudo tee /usr/local/bin/karabiner <<'EOF'
+sudo tee /usr/local/bin/karabiner >/dev/null <<'EOF'
 #!/bin/sh
-/Library/Application\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli $@
+/Library/Application\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli "$@"
 EOF
 sudo chmod +x /usr/local/bin/karabiner
 
