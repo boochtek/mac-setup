@@ -32,7 +32,7 @@ if [[ ! -f "$OP_BIOMETRIC_UNLOCK_ENABLED_FILE" ]]; then
 fi
 
 # Install by App Store ID; searching by name can match several apps.
-mas get 1569813296 # 1Password for Safari
+[[ -e '/Applications/1Password for Safari.app' ]] || mas get 1569813296 # 1Password for Safari
 
 # TODO: Install other browser extensions.
 # TODO: Document using 1Password's SSH agent.

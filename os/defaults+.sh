@@ -12,7 +12,7 @@ fi
 
 sudo chown root:staff /usr/local/bin
 sudo chmod g+w /usr/local/bin
-curl --silent -o /usr/local/bin/defaults+ https://raw.githubusercontent.com/boochtek/defaults_plus/master/defaults+
+curl --silent --fail -o /usr/local/bin/defaults+ https://raw.githubusercontent.com/boochtek/defaults_plus/master/defaults+
 # Run it as a uv script, so uv provides Python and PyObjC (for `CoreFoundation`).
 # (pip refuses to install packages into Homebrew's Python.)
 uv add --quiet --script /usr/local/bin/defaults+ pyobjc-framework-Cocoa
