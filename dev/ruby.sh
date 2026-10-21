@@ -10,7 +10,7 @@ source "${BASH_SOURCE%/*}/../util/apps.sh"
 # Dependencies: `mise`
 
 # Install dependencies required to build Ruby. See https://github.com/rbenv/ruby-build/wiki#macos.
-brew install openssl@3 readline libyaml gmp autoconf
+brew install --quiet openssl@3 readline libyaml gmp autoconf
 
 
 ## Install Ruby. (The version comes from the mise config in the config files.)
@@ -53,13 +53,13 @@ with-ruby gem install rubocop rubocop-rspec rubocop-performance rubocop-rails
 
 # Install Ruby LSP server.
 with-ruby gem install ruby-lsp
-mkdir "$HOME/.ruby-lsp"
-cat "$HOME/.ruby-lsp/Gemfile" << RUBY_LSP
+mkdir -p "$HOME/.ruby-lsp"
+cat > "$HOME/.ruby-lsp/Gemfile" << RUBY_LSP
 source 'https://rubygems.org'
 ruby "$RUBY_VERSION"
 gem 'ruby-lsp'
 RUBY_LSP
-BUNDLE_GEMFILE="$HOME/.ruby-lsp/Gemfile" with-ruby bundle
+BUNDLE_GEMFILE="$HOME/.ruby-lsp/Gemfile" with-ruby bundle install
 
 # Install rubyfmt.
 brew install --quiet rubyfmt
