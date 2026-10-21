@@ -46,10 +46,6 @@ sudo pmset -b lessbright 0
 sudo pmset -b halfdim 0
 sudo pmset -c halfdim 0
 
-### Restart automatically if the computer freezes (no longer available in MacOS 12 Monterey)
-sudo pmset -b panicrestart 15 > /dev/null
-sudo pmset -c panicrestart 15 > /dev/null
-
 ### Wake for network access
 sudo pmset -c womp 1
 
