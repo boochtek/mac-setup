@@ -14,6 +14,19 @@ BLUE="$(tput setaf 4)"
 RESET="$(tput sgr0)"
 
 brew-install-cask talon
+
+# Download community Talon user files to configure vocabulary/commands/actions.
+# Do this before Talon first runs; it would create ~/.talon itself.
+mkdir -p ~/.config/talon/user
+if [[ -d ~/.talon && ! -L ~/.talon ]]; then
+    echo "${BLUE}~/.talon is a directory; move its contents to ~/.config/talon, remove it, and re-run.${RESET}"
+elif [[ ! -L ~/.talon ]]; then
+    ln -s .config/talon ~/.talon
+fi
+for repo in talonhub/community phillco/talon_axkit cursorless-dev/cursorless-talon; do
+    [[ -d ~/.config/talon/user/"${repo#*/}" ]] || git clone "https://github.com/$repo" ~/.config/talon/user/"${repo#*/}"
+done
+
 echo "${BLUE}You may be prompted to agree to the EULA.${RESET}"
 echo "${BLUE}You may be prompted to enable Accessibility Access:${RESET}"
 echo "${BLUE}System Settings / Privacy & Security / Device Control and Data Access / ENABLE Talon${RESET}"
@@ -21,14 +34,6 @@ open-app Talon
 
 echo "${BLUE}You may need to set the microphone in the Talon menu in the menu bar.${RESET}"
 echo "${BLUE}You'll probably want to install Conformer from the Talon menu in the menu bar (in the Speech Recognition submenu).${RESET}"
-
-# Download community Talon user files to configure vocabulary/commands/actions.
-# (Talon creates `user/` on its first run, which may not have happened yet.)
-mkdir -p ~/.config/talon/user
-[[ -L ~/.talon ]] || ln -s .config/talon ~/.talon
-for repo in talonhub/community phillco/talon_axkit cursorless-dev/cursorless-talon; do
-    [[ -d ~/.config/talon/user/"${repo#*/}" ]] || git clone "https://github.com/$repo" ~/.config/talon/user/"${repo#*/}"
-done
 
 # TODO: Install Parrot to enable clicks, pops, etc.
 #brew install --quiet six
