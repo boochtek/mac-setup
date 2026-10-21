@@ -30,5 +30,3 @@ brew-install-cask zoom
 
 # Download content from YouTube and many other video sites.
 brew install --quiet yt-dlp
-
-yt-dlp --list-impersonate-targets --no-playlist --impersonate="chrome:windows-10" --preset-alias mkv https://xhamster.com/videos/woman-s-guide-first-time-with-bbc-7576435
