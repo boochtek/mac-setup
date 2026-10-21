@@ -5,6 +5,8 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 # Return unless $HAS_TOUCH_BAR is set to 1.
 [[ "$HAS_TOUCH_BAR" == "1" ]] || exit 0
 
@@ -13,7 +15,7 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 # AUTOMATE: Settings: Hide title bar, Automatically check for updates.
 
 # Install app to use Touch Bar to switch between apps.
-brew install --quiet --cask touchswitcher
+brew-install-cask touchswitcher
 
 # TODO: Install https://github.com/henryefranks/Pac-Bar.
 

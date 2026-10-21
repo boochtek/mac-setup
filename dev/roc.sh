@@ -5,6 +5,8 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 ## Roc is
 
 
@@ -27,4 +29,4 @@ code --install-extension IvanDemchenko.roc-lang-unofficial
 # TODO: Set "roc-lang.language-server.exe": "<path to language server binary>" in VS Code settings.
 
 # Install Zulip, the chat platform that Roc developers use.
-brew install --quiet --cask zulip
+brew-install-cask zulip

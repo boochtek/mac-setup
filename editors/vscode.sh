@@ -6,7 +6,9 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
-brew install --quiet --cask visual-studio-code
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
+brew-install-cask visual-studio-code
 
 dockutil --add '/Applications/Visual Studio Code.app' --replacing 'Visual Studio Code' --after 'iTerm' &>/dev/null
 

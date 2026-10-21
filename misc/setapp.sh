@@ -7,10 +7,12 @@
 set -Euo pipefail
 IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
+
+source "${BASH_SOURCE%/*}/../util/apps.sh"
 [[ -n "${DEBUG+unset}" ]] && set -x
 
 # Install [Setapp](https://setapp.com/).
-brew install --quiet --cask setapp
+brew-install-cask setapp
 
 # Interactive!
 echo "Setapp installed. Opening..."

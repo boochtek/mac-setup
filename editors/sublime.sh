@@ -5,6 +5,8 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 ## Install and configure Sublime Text.
 
 ## NOTE: Most configuration will happen in user-specific config files.
@@ -13,7 +15,7 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 
 
 # Install Sublime Text 3
-brew install --quiet --cask sublime-text3
+brew-install-cask sublime-text3
 
 # The Homebrew installation provides a binary named `subl`. We'll provide a couple other names for that.
 ln -s subl /usr/local/bin/sublime

@@ -4,10 +4,12 @@
 set -Euo pipefail
 IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
+
+source "${BASH_SOURCE%/*}/../util/apps.sh"
 [[ -n "${DEBUG+unset}" ]] && set -x
 
 # Anthropic Claude.
-brew install --quiet --cask claude
+brew-install-cask claude
 open -a Claude
 dockutil --add '/Applications/Claude.app' --replacing 'Claude' --after 'ChatGPT' &>/dev/null
 
@@ -27,7 +29,7 @@ brew install --quiet bfs   # breadth-first version of `find`
 # WARNING: This requires MacOS Sonoma (14.0) or newer on Apple Silicon.
 # NOTE: Includes DALL-E (generative images).
 if [[ $(arch) == 'arm64' ]]; then
-    brew install --quiet --cask chatgpt
+    brew-install-cask chatgpt
     open -a ChatGPT
     dockutil --add '/Applications/ChatGPT.app' --replacing 'ChatGPT' --after 'Zed' &>/dev/null
 else
@@ -53,9 +55,9 @@ brew install gemini-cli
 brew install googleworkspace-cli
 
 # Ollama. Allows running various LLMs on your local hardware.
-brew install --quiet --cask ollama
+brew-install-cask ollama
 # OPTIONAL (probably want some OLLAMA_* env varaibles): brew services restart ollama
-# OPTIONAL: brew install --quiet --cask llamabarn  # menu bar app for running local LLMs
+# OPTIONAL: brew-install-cask llamabarn  # menu bar app for running local LLMs
 
 # Pull local models for agentic coding workflows.
 # Models are inert on disk (~100GB total); only loaded models consume RAM.

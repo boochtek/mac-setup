@@ -5,7 +5,9 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
-brew install --quiet --cask rubymine
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
+brew-install-cask rubymine
 
 dockutil --add  '/Applications/RubyMine.app' --replacing 'RubyMine' --after 'Visual Studio Code' &> /dev/null
 

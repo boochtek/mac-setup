@@ -5,8 +5,10 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 ## Install and configure Raycast. NOTE: You'll need an API key for the AI stuff.
-brew install --quiet --cask raycast
+brew-install-cask raycast
 
 echo "Set up Raycast according to your preferences."
 echo "Set to launch at login."

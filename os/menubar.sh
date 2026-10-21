@@ -7,8 +7,10 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 # Install Hidden Bar to hide some items in the menu bar.
-brew install --quiet --cask hiddenbar
+brew-install-cask hiddenbar
 echo "Starting Hidden Bar. CHECK 'Open Hidden Bar when I login'."
 open -a 'Hidden Bar'
 

@@ -5,6 +5,8 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 ## Install and configure Atom Editor.
 
 ## NOTE: Most configuration will happen in user-specific config files.
@@ -13,7 +15,7 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 
 
 # Install Atom Editor.
-brew install --quiet --cask atom
+brew-install-cask atom
 
 
 # Install extensions.

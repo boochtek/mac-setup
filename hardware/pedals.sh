@@ -5,9 +5,11 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 # Despite deciding on the Elgato foot pedals, I prefer using Better Touch Tool over the Stream Deck app.
 # NOTE: You'll be prompted for your password.
-# brew install --quiet --cask elgato-stream-deck
+# brew-install-cask elgato-stream-deck
 
 # NOTE: The app will open, and will likely prompt you to install an update.
 # NOTE: You'll get a prompt that the app (from "Corsair") will run in the background.
@@ -15,7 +17,7 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 
 
 # BetterTouchTool
-brew install --quiet --cask bettertouchtool
+brew-install-cask bettertouchtool
 open -a BetterTouchTool
 # Manually:
 #   Check for Updates

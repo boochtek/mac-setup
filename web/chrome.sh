@@ -5,17 +5,19 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 ## Install Chrome browser and extensions.
 
 # Install Chrome browser.
-brew install --quiet --cask google-chrome
+brew-install-cask google-chrome
 dockutil --add '/Applications/Google Chrome.app' --replacing 'Google Chrome' --before 'Safari'
 
 # Chrome TODO (manual):
 #   * Make sure 1Password works properly. FIXME: Need cask apps deployed into /Applications instead of locally.
 
 ## Install Chromium browser.
-#brew install --quiet --cask chromium
+#brew-install-cask chromium
 #dockutil --add '/Applications/Chromium.app' --replacing 'Chromium' --after 'Google Chrome'
 
 # Install `extension` utility to install Chrome (or Edge or Arc) extensions from CLI.

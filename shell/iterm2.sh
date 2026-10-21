@@ -5,10 +5,12 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 source "${BASH_SOURCE%/*}/../os/dock.sh"
 
 # Install iTerm2.
-brew install --quiet --cask iterm2
+brew-install-cask iterm2
 
 # Download shell integration. Shell startup scripts should source the appropriate script.
 ITERM_SHELL_INTEGRATION="${ITERM_SHELL_INTEGRATION-$XDG_DATA_HOME/iterm2}"

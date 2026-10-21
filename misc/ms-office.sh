@@ -5,22 +5,24 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 ## Microsoft Office
 
 # NOTE: There's a `microsoft-office` cask, but I don't want to install all the apps.
 
 # Dependencies / nice-to-have.
-brew install --quiet --cask microsoft-auto-update
+brew-install-cask microsoft-auto-update
 brew trust --cask niksy/pljoska/font-microsoft-cleartype-family
 brew install --quiet niksy/pljoska/font-microsoft-cleartype-family
 
 # Install individual Office apps.
-brew install --quiet --cask microsoft-word
-brew install --quiet --cask microsoft-excel
-# brew install --quiet --cask microsoft-powerpoint
-# brew install --quiet --cask microsoft-outlook
-# brew install --quiet --cask microsoft-remote-desktop
-# brew install --quiet --cask onedrive
+brew-install-cask microsoft-word
+brew-install-cask microsoft-excel
+# brew-install-cask microsoft-powerpoint
+# brew-install-cask microsoft-outlook
+# brew-install-cask microsoft-remote-desktop
+# brew-install-cask onedrive
 
 # Add to Dock.
 dockutil --add '/Applications/Microsoft Word.app' --replacing 'Microsoft Word' --after 'Obsidian' &>/dev/null

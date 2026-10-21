@@ -5,9 +5,11 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 
 # [Zed](https://zed.dev) is a new text editor by the authors of Atom and Tree-sitter.
-brew install --quiet --cask zed
+brew-install-cask zed
 
 dockutil --add  '/Applications/Zed.app' --replacing 'Zed' --after 'Visual Studio Code' &> /dev/null
 

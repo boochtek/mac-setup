@@ -5,6 +5,8 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 ## Configure QuickLook to handle more file types.
 
 ## CREDITS:
@@ -18,16 +20,16 @@ echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
 sudo -n true 2>/dev/null || sudo -v
 
 # Preview Markdown files.
-# brew install --quiet --cask qlmarkdown
+# brew-install-cask qlmarkdown
 brew trust --cask xykong/tap/flux-markdown
-brew install --quiet --cask xykong/tap/flux-markdown
+brew-install-cask xykong/tap/flux-markdown
 
 # Preview source code files with syntax highlighting.
 # TODO: Customize. See https://github.com/sbarex/SourceCodeSyntaxHighlight#install-with-homebrew-cask.
-brew install --quiet --cask syntax-highlight
+brew-install-cask syntax-highlight
 
 # Preview plain text files without a file extension (README, CHANGELOG, etc.).
-brew install --quiet --cask qlstephen
+brew-install-cask qlstephen
 # Have QLStephen handle plist files.
 plutil -insert CFBundleDocumentTypes.0.LSItemContentTypes.0 -string 'com.apple.property-list' "$HOME/Library/QuickLook/QLStephen.qlgenerator/Contents/Info.plist"
 # Don't let QLColorCode handle plist files.
@@ -36,34 +38,34 @@ index=$(plutil -convert json -r "$HOME/Library/QuickLook/QLColorCode.qlgenerator
 plutil -remove "CFBundleDocumentTypes.0.LSItemContentTypes.$index" "$HOME/Library/QuickLook/QLColorCode.qlgenerator/Contents/Info.plist"
 
 # Preview source code files for various programming languages, with syntax highlighting.
-brew install --quiet --cask qlcolorcode
+brew-install-cask qlcolorcode
 
 # Preview JSON files.
-brew install --quiet --cask quicklook-json
+brew-install-cask quicklook-json
 
 # Preview CSV files.
-brew install --quiet --cask quicklook-csv
+brew-install-cask quicklook-csv
 
 # Preview diffs.
-brew install --quiet --cask qlprettypatch
+brew-install-cask qlprettypatch
 
 # Preview archives (ZIP, tar, gzip, bzip2, ARJ, LZH, ISO, etc.).
-brew install --quiet --cask betterzip
+brew-install-cask betterzip
 
 # Preview SSL/X509 certificate files (CRT, PEM, DER, etc.). (No longer available via Homebrew.)
-#brew install --quiet --cask cert-quicklook
+#brew-install-cask cert-quicklook
 
 # Preview WEBP images.
-brew install --quiet --cask webpquicklook
+brew-install-cask webpquicklook
 
 # Preview most video formats.
-brew install --quiet --cask qlvideo
+brew-install-cask qlvideo
 
 # Preview AVIF images.
-brew install --quiet --cask avifquicklook
+brew-install-cask avifquicklook
 
 # Inspect the contents of .pkg installer packages before running them.
-brew install --quiet --cask suspicious-package
+brew-install-cask suspicious-package
 
 # Reload QuickLook daemon, so new plugins will work.
 qlmanage -r

@@ -5,6 +5,8 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 # I'd really rather not install this.
 return 0;
 
@@ -17,7 +19,7 @@ brew install --quiet pandoc
 # NOTE: This will install several dependencies:
 #   jbig2dec, leptonica, libb2, libarchive, libidn, tesseract, ghostscript
 # NOTE: This installs several applications into `/Applications/TeX/`.
-brew install --quiet --cask mactex
+brew-install-cask mactex
 
 # Install Pandoc templates.
 # The Eisvogel template seems to be "the one to get".

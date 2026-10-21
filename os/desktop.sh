@@ -5,6 +5,8 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 # Don't bother with the "desktop" behind all our windows. From http://lifehacker.com/hide-and-show-desktop-icons-on-os-x-with-an-automator-s-5704241
 defaults write com.apple.finder CreateDesktop -bool false
 
@@ -59,7 +61,7 @@ fi
 killall Finder
 
 # Install Rectangle window manager.
-brew install --cask --quiet rectangle
+brew-install-cask rectangle
 echo "TODO: Automate: System Settings > Privacy & Security > Accessibility > ENABLE Rectangle"
 open -a Rectangle
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Launch on login"

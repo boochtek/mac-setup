@@ -5,6 +5,8 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 RUBY_VERSION="${RUBY_VERSION:-4.0.1}"
 
 # Dependencies: `mise`
@@ -40,7 +42,7 @@ done
 
 # Install some gems for ONLY the latest Ruby.
 mise shell ruby $CURRENT_RUBY_VERSION
-brew install --quiet --cask wkhtmltopdf
+brew-install-cask wkhtmltopdf
 gem install kramdown
 gem install rsense
 gem install ruby-beautify

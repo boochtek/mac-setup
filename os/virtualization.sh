@@ -7,8 +7,10 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 # Install UTM system emulator and virtual machine.
-brew install --quiet --cask utm
+brew-install-cask utm
 open -a UTM
 
 # Use CrystalFetch to get latest Windows ISOs.

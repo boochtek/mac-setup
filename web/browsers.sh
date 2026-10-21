@@ -5,11 +5,13 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 ## Install and configure web browsers.
 
 # We'll use [Finicky](https://github.com/johnste/finicky) to use different browsers for different sites and web apps.
 # Alternatives: [Choosy](https://www.choosyosx.com/), Browser Fairy, Browserosaurus, OpenIn, Browser ChooserX
-brew install --quiet --cask finicky
+brew-install-cask finicky
 # WARNING: You'll be prompted to change your default browser to Finicky. Click **Use "Finicky"**.
 open -a Finicky
 
@@ -21,17 +23,17 @@ open -a Finicky
 # Install Microsoft Edge.
 # NOTE: You'll be prompted for your password.
 echo 'Installing Microsoft Edge... You may be prompted for your password.'
-brew install --quiet --cask microsoft-edge
+brew-install-cask microsoft-edge
 dockutil --add '/Applications/Microsoft Edge.app' --replacing 'Microsoft Edge' --after 'Safari'
 
 # Install Firefox browser.
-brew install --quiet --cask firefox
+brew-install-cask firefox
 dockutil --add '/Applications/Firefox.app' --replacing 'Firefox' --after 'Microsoft Edge'
 # NOTE: Firefox extensions and preferences (bookmarks toolbar, vertical tabs, 1Password, etc.)
 #       are configured by ./firefox.sh via Enterprise Policies.
 
 # Install Firefox Developer Edition.
-brew install --quiet --cask firefox@developer-edition
+brew-install-cask firefox@developer-edition
 dockutil --add '/Applications/Firefox Developer Edition.app' --replacing 'Firefox Developer Edition' --after 'Firefox'
 
 # Create a folder for extra browsers, add it to the Dock.

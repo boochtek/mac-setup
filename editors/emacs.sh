@@ -5,10 +5,12 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 ---
 
 # Install Emacs (GUI and CLI).
-brew install --cask --quiet emacs
+brew-install-cask emacs
 
 # Install "Noto Color Emoji" font, which will be used if no emojis can be found in other fonts.
 brew install --cask --quiet font-noto-color-emoji

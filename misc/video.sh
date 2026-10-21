@@ -5,25 +5,27 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 # VLC is the old tried and true general-purpose video player.
-brew install --quiet --cask vlc
+brew-install-cask vlc
 
 # IINA is a newer Mac-only video player.
-brew install --quiet --cask iina
+brew-install-cask iina
 
 # This is the go-to distribution of MPV for Mac.
-brew install --quiet --cask stolendata-mpv
+brew-install-cask stolendata-mpv
 
 # Note that there's an outdated non-cask version of HandBrake.
-brew install --quiet --cask handbrake
+brew-install-cask handbrake
 
 ## Meeting apps
 
 # Note that there's also webex-meetings, but that's a different app.
-brew install --quiet --cask webex
+brew-install-cask webex
 
 # Zoom is the most popular meeting app.
-brew install --quiet --cask zoom
+brew-install-cask zoom
 
 
 # Download content from YouTube and many other video sites.

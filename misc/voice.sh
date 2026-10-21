@@ -5,13 +5,15 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 ## Talon is a speech-to-text-and-commands tool.
 ## Talon is required for the Cursorless VS Code plugin.
 
 BLUE="$(tput setaf 4)"
 RESET="$(tput sgr0)"
 
-brew install --cask --quiet talon
+brew-install-cask talon
 echo "${BLUE}You may be prompted to agree to the EULA.${RESET}"
 echo "${BLUE}You may be prompted to enable Accessibility Access:${RESET}"
 echo "${BLUE}System Settings / Privacy & Security / Accessibility / ENABLE Talon${RESET}"
@@ -45,4 +47,4 @@ code --install-extension pokey.semantic-movement # Optional.
 
 
 # Handy is Open Source, uses Whisper Small locally.
-brew install --cask --quiet handy
+brew-install-cask handy

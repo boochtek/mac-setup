@@ -5,10 +5,12 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 source "${BASH_SOURCE%/*}/../os/dock.sh"
 
 # Install Ghostty.
-brew install --quiet --cask ghostty
+brew-install-cask ghostty
 
 # Add Ghostty to the Dock. Allow time for it to get added before opening the app.
 dockutil --add  '/Applications/Ghostty.app' --replacing 'Ghostty' --after 'iTerm' &> /dev/null

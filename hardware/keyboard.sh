@@ -5,6 +5,8 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 ## Configure keyboard.
 
 # Use function keys as standard function keys. (Require Fn modifier key to enable special media functions.)
@@ -34,7 +36,7 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -boolean true
 # sudo -v
 
 # Install Karabiner-Elements.
-brew install --quiet --cask karabiner-elements # Requires password.
+brew-install-cask karabiner-elements # Requires password.
 
 # Create a symlink to the Karabiner CLI, so we can use it in scripts.
 sudo mkdir -p /usr/local/bin

@@ -5,10 +5,12 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 ## 1Password
 
 # Install 1Password app and CLI.
-brew install --quiet --cask 1password
+brew-install-cask 1password
 brew install --quiet 1password-cli
 
 # Verify CLI installation.
