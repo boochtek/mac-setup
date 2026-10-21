@@ -218,3 +218,23 @@ Fixing them first will make the remaining issues much easier to find.
 - `dev/docker.sh:19`: backticks inside double quotes run `sudo`.
 
 - **Decision (Craig)**: Fix these
+
+## Status (2026-10-20)
+
+Fixed on the `macos-27-fixes` branch, unless noted:
+
+- **A** `HOMEBREW_NO_ASK`; **A2** `brew-install-cask` (and a one-time sweep of
+  installed apps); **C** bootstrap tools in `init/homebrew.sh`, plus
+  `command -v` guards; **D** `open-app`; **E** Full Disk Access check;
+  **F** replacements, including the `7onnie/tap/mysides` fork;
+  **G** `XDG_CONFIG_HOME`; **H** mise tools come from the config files'
+  mise config; **I** uv; **J** Dock.
+- All rows in "Single-Script Bugs", except:
+    - **#15** (flux-markdown): still unknown; retry it.
+    - **#17** (font-go 429): transient; no change, per B.
+    - **#50**: a manual `brew install` with no name; nothing to fix.
+- **#01**, **#02**, **#39/#40**, and the interactive `HOMEBREW_NO_ASK`
+  are in the config files repo.
+- **#06**, **#07/#08**, **#22/#59**, **#55**: fixed.
+- Rectangle: macOS's own double-click setting is left at its default.
+- More packages Homebrew no longer has are listed in `TODO.md`.

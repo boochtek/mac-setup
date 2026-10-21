@@ -24,14 +24,17 @@ Found by a VM test run; each one aborts its script.
 
 - `homebrew/command-not-found` tap is deprecated and now empty
   (`init/homebrew.sh`).
-- `mysides` was disabled upstream 2025-10-13, so the whole Finder sidebar
-  section of `os/finder.sh` cannot run. Needs a replacement.
 - `pidof` was disabled upstream 2026-01-12 (`os/misc.sh`).
-- `rar` is deprecated (fails Gatekeeper) and will be disabled 2026-09-01.
 - `qlstephen` is deprecated and will be disabled 2026-09-22 (`os/quicklook.sh`).
-- `os/fonts.sh` taps `niksy/pljoska`, which needs `git-lfs` to clone. `git-lfs`
-  is installed later, in `dev/`, so the tap fails. Install it earlier, or drop
-  the ClearType fonts.
+- No longer in Homebrew (found 2026-10-19; not yet hit, since earlier failures
+  stopped those scripts first):
+    - casks `font-noto-mono`, `font-source-sans-pro`, `font-source-serif-pro`
+      (`os/fonts.sh`; probably superseded by `font-noto-sans-mono`,
+      `font-source-sans-3`, `font-source-serif-4`)
+    - cask `wkhtmltopdf` (`dev/ruby.sh`; the project is archived)
+    - cask `sublime-text3` (`editors/sublime.sh`; now `sublime-text`)
+    - cask `atom` (`editors/atom.sh`; discontinued)
+    - formulae `crystal-lang` (now `crystal`) and `plt-racket` (`dev/`)
 
 ## Script Robustness
 
@@ -39,10 +42,6 @@ Found by a VM test run. Each aborts the rest of its script via the ERR trap.
 
 - `killall` fails when the process isn't running: `os/ui.sh` (SystemUIServer)
   and `os/desktop.sh` (Finder). Should tolerate a missing process.
-- `open -a 'Hidden Bar'` immediately after installing the cask fails with
-  "Unable to find application" — LaunchServices hasn't registered it yet
-  (`os/menubar.sh`). Try the full path under `/Applications`.
-- `dockutil --remove` errors for Dock items that aren't there (`os/dock.sh`).
 - `os/quicklook.sh` copies QLColorCode's `Info.plist` without checking that
   QLColorCode is installed.
 - Installing the 1Password CLI cask can't write its zsh completions:
@@ -95,5 +94,8 @@ These may be in Karabiner, or maybe just Mac key bindings.
 
 ## User-Specific
 
+- Decide whether `~/.config/homebrew/` (it holds `brew trust`'s `trust.json`)
+  should be committed to the config files repo, or ignored.
+- `defaults+` segfaults when reading a top-level (non-nested) key.
 - Figure out how to restore from backups.
 - Pull config_files.PRIVATE from wherever it belongs.
