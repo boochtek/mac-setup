@@ -17,14 +17,18 @@ brew-install-cask talon
 
 # Download community Talon user files to configure vocabulary/commands/actions.
 # Do this before Talon first runs; it would create ~/.talon itself.
-mkdir -p ~/.config/talon/user
-if [[ -d ~/.talon && ! -L ~/.talon ]]; then
-    echo "${BLUE}~/.talon is a directory; move its contents to ~/.config/talon, remove it, and re-run.${RESET}"
-elif [[ ! -L ~/.talon ]]; then
+TALON_USER_DIR=~/.config/talon/user
+mkdir -p "$TALON_USER_DIR"
+if [[ -L ~/.talon ]]; then
+    : # Already linked.
+elif [[ -e ~/.talon ]]; then
+    echo "${BLUE}~/.talon exists; move its contents to ~/.config/talon, remove it, and re-run.${RESET}"
+else
     ln -s .config/talon ~/.talon
 fi
 for repo in talonhub/community phillco/talon_axkit cursorless-dev/cursorless-talon; do
-    [[ -d ~/.config/talon/user/"${repo#*/}" ]] || git clone "https://github.com/$repo" ~/.config/talon/user/"${repo#*/}"
+    repo_dir="$TALON_USER_DIR/${repo#*/}"
+    [[ -d "$repo_dir" ]] || git clone "https://github.com/$repo" "$repo_dir"
 done
 
 echo "${BLUE}You may be prompted to agree to the EULA.${RESET}"
