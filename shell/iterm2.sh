@@ -38,3 +38,7 @@ defaults write com.googlecode.iterm2 NSUserKeyEquivalents -dict-add "Page Setupâ
 
 # Open iTerm2.
 open-app iTerm
+
+# Setup scripts change settings and apps that macOS protects.
+echo 'System Settings > Privacy & Security > Full Disk Access: ENABLE iTerm'
+echo 'System Settings > Privacy & Security > App Management: ENABLE iTerm'

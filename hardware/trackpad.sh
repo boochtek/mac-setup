@@ -5,6 +5,9 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/privacy.sh"
+require-full-disk-access
+
 ## Configure trackpad.
 
 # NOTE: You'll need to log out and back in for some of these (like tap-to-click) to work.

@@ -32,3 +32,7 @@ fi
 
 # Open Ghostty.
 open-app Ghostty
+
+# Setup scripts change settings and apps that macOS protects.
+echo 'System Settings > Privacy & Security > Full Disk Access: ENABLE Ghostty'
+echo 'System Settings > Privacy & Security > App Management: ENABLE Ghostty'

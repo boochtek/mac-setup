@@ -5,6 +5,9 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/privacy.sh"
+require-full-disk-access
+
 # Cache the sudo password.
 echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
 # Pre-authorize sudo. Skip the prompt when sudo is already passwordless, so

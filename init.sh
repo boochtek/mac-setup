@@ -3,7 +3,8 @@
 # This should work in Bash or Zsh (maybe others), but tell shellcheck it's Bash:
 # shellcheck shell=bash
 
-if source ./ENV.sh; then
+# Fail early if the terminal lacks Full Disk Access, which later scripts need.
+if source ./ENV.sh && source ./util/privacy.sh && require-full-disk-access; then
     source ./init/shared-functions.sh
     # Before anything that needs sudo, so the rest authenticates by fingerprint.
     source ./init/touch-id.sh

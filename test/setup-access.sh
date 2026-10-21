@@ -4,7 +4,8 @@
 # enable passwordless sudo — so every later run is unattended.
 #
 # Run this from YOUR Mac's terminal (not inside the VM) AFTER you've enabled
-# Remote Login in the VM (System Settings → General → Sharing → Remote Login).
+# Remote Login in the VM (System Settings → General → Sharing → Remote Login),
+# including its "Allow full disk access for remote users" (init.sh needs it).
 # It prompts for the VM account password a couple of times; the AI never sees
 # it. This avoids pasting into the VM window (host↔guest clipboard is flaky).
 #

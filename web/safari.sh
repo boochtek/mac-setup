@@ -5,6 +5,9 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/privacy.sh"
+require-full-disk-access
+
 # safari.sh
 
 # Show the status bar at the bottom, so we can see URLs when we hover over links.

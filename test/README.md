@@ -66,7 +66,8 @@ Steps marked 🖥️ are manual inside the VM; the rest run on your host.
    FileVault, Location, and Analytics.
 
 4. 🖥️ **Enable Remote Login.** System Settings → General → Sharing → **Remote
-   Login** ON.
+   Login** ON. Click its (ⓘ) and turn ON **Allow full disk access for remote
+   users** — `init.sh` stops without Full Disk Access.
 
    Also allow your **terminal app** to reach the local network (System Settings →
    Privacy & Security → **Local Network**). If the app isn't listed, **quit and
