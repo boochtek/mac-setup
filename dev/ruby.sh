@@ -37,7 +37,7 @@ with-ruby() {
 # Install some gems for every version of Ruby. These are either for irb or for the commands they provide,
 GEMS_TO_INSTALL=(bundler amazing_print hirb wirble pry railties rubocop debug)
 for ruby_version in $(mise ls --installed --json ruby | jq -r '.[].version'); do
-    echo "Installing gems into $ruby_version: ${GEMS_TO_INSTALL[*]}"
+    echo "Installing gems into $ruby_version:" "${GEMS_TO_INSTALL[@]}"
     with-ruby-version "$ruby_version" gem update --system
     with-ruby-version "$ruby_version" gem install "${GEMS_TO_INSTALL[@]}"
 done
