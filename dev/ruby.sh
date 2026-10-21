@@ -13,9 +13,8 @@ brew install --quiet openssl@3 readline libyaml gmp autoconf
 
 ## Install Ruby. (The version comes from ~/.config/mise/config.toml.)
 mise install ruby
-# TODO: See if there are any old versions we want to get rid of. Maybe ask?
-#           Use `mise uninstall ruby 2.7.1`
-#           Maybe set an `at` to remind you to run the script again?
+# Remove old versions, once no config (global or project) still uses them.
+mise prune --yes --tools ruby
 
 
 ## Gems

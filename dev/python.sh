@@ -9,7 +9,8 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 
 ## Install Python. (The version comes from ~/.config/mise/config.toml.)
 mise install python
-# TODO: See if there are any old versions we want to get rid of. Maybe ask?
+# Remove old versions, once no config (global or project) still uses them.
+mise prune --yes --tools python
 
 # UV is the new Python package manager.
 brew install --quiet uv
