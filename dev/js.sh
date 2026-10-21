@@ -20,8 +20,5 @@ export BUN_INSTALL="${XDG_DATA_HOME:-$HOME/.local/share}/bun"
 export BUN_INSTALL_BIN="${XDG_BIN_HOME:-$HOME/.local/bin}"
 export BUN_INSTALL_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/bun"
 
-## Install Deno.
-mise install deno
-
 ## Install Node.
 mise install node
