@@ -81,9 +81,6 @@ brew install pidof
 # PV (Pipe Viewer) can be used in shell pipelines to show a progress bar.
 brew install pv
 
-# Midnight Commander (mc) is a visual (TUI) file manager, a clone of Norton Commander
-brew install midnight-commander
-
 # Occasionally we need to decompress FLAC and RAR files.
 # (`unar` replaces the `rar` cask, which Homebrew disabled for failing Gatekeeper.)
 brew install flac
