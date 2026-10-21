@@ -73,9 +73,9 @@ brew doctor
 brew tap homebrew/command-not-found
 
 # Install tools that setup scripts use before the script that installs them runs:
-# `mas` (App Store), `dockutil` (Dock), `git-lfs` (some taps), `wget` (downloads).
-# (The config files configure git to use git-lfs.)
-brew install --quiet mas dockutil git-lfs wget
+# `mas` (App Store), `dockutil` (Dock), `git-lfs` (some taps), `wget` (downloads),
+# and `uv` (Python). (The config files configure git to use git-lfs.)
+brew install --quiet mas dockutil git-lfs wget uv
 
 ## Fix permissions on Homebrew share directory, so Zsh completion doesn't complain.
 chmod g-w /opt/homebrew/share

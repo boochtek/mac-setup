@@ -32,5 +32,4 @@ brew install --quiet fancy-cat
 brew install --quiet tika
 
 # MarkItDown is a tool from Microsoft that converts Word, PowerPoint, Excel, PDF, HTML and other files to Markdown.
-brew install --quiet uv
 uv tool install --quiet --upgrade markitdown
