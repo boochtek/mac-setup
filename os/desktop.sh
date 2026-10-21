@@ -62,14 +62,15 @@ killall Finder
 
 # Install Rectangle window manager.
 brew-install-cask rectangle
+# Write these before Rectangle runs, so it doesn't overwrite them.
+# Leave double-clicking a window's title bar to macOS (Desktop & Dock settings);
+# Rectangle's own double-click option conflicts with it. Make the green stoplight
+# button maximize the window, instead of going full screen.
+defaults write com.knollsoft.Rectangle doubleClickTitleBar -int 0
+defaults write com.knollsoft.Rectangle greenButtonOverride -bool true
 echo "TODO: Automate: System Settings > Privacy & Security > Device Control and Data Access > ENABLE Rectangle"
 open-app Rectangle
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Launch on login"
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Check for updates automatically"
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Remove keyboard shortcut restrictions"
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Move cursor along with window across displays"
-# Leave double-clicking a window's title bar to macOS (Desktop & Dock settings);
-# Rectangle's own double-click option conflicts with it. Make the green stoplight
-# button maximize the window, instead of going full screen.
-defaults write com.knollsoft.Rectangle doubleClickTitleBar -int 0
-defaults write com.knollsoft.Rectangle greenButtonOverride -bool true
