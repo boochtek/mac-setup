@@ -16,7 +16,7 @@ RESET="$(tput sgr0)"
 brew-install-cask talon
 echo "${BLUE}You may be prompted to agree to the EULA.${RESET}"
 echo "${BLUE}You may be prompted to enable Accessibility Access:${RESET}"
-echo "${BLUE}System Settings / Privacy & Security / Accessibility / ENABLE Talon${RESET}"
+echo "${BLUE}System Settings / Privacy & Security / Device Control and Data Access / ENABLE Talon${RESET}"
 open-app Talon
 
 echo "${BLUE}You may need to set the microphone in the Talon menu in the menu bar.${RESET}"

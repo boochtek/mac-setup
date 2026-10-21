@@ -131,7 +131,7 @@ brew install --quiet dos2unix
 #osascript -e 'tell application "System Events" to tell "Appearance Preferences" to set "Recent documents limit" to 0'
 #osascript -e 'tell application "System Events" to tell "Appearance Preferences" to set "Recent servers limit" to 0'
 
-## System Preferences > Keyboard > Keyboard
+## System Settings > Keyboard > Keyboard
 
 ### Automatically illuminate keyboard in low light: on
 defaults write com.apple.BezelServices 'kDim' -bool true
@@ -139,12 +139,12 @@ defaults write com.apple.BezelServices 'kDim' -bool true
 ### Turn off when computer is not used for: 5 mins
 defaults write com.apple.BezelServices 'kDimTime' -int 300
 
-## System Preferences > Users & Groups
+## System Settings > Users & Groups
 
 ### Login Options > Display login window as: Name and password
 sudo defaults write /Library/Preferences/com.apple.loginwindow 'SHOWFULLNAME' -bool true
 
-## System Preferences > Date & Time > Clock
+## System Settings > Date & Time > Clock
 
 ### Time options: Display the time with seconds: on
 ### Date options: Show the day of the week: on

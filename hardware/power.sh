@@ -14,7 +14,7 @@ sudo -n true 2>/dev/null || sudo -v
 # TODO: Make these idempotent. Use output of `pmset -g custom`.
 
 ## Power-saving settings. Times are in minutes.
-## System Preferences > Energy Saver
+## System Settings > Energy Saver
 
 # NOTE: For `pmset`, `-b` = "on battery", `-c` = "charging", `-a` = "always".
 

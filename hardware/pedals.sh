@@ -23,10 +23,10 @@ open-app BetterTouchTool
 #   Check for Updates
 #   Hit OK when asked to control "Shortcut Events.app"
 #   Hit *Continue* to confirm GDPR privacy statement
-#   Hit the button to open System Preferences / Security & Privacy / Accessibility
+#   Hit the button to open System Settings / Privacy & Security / Device Control and Data Access
 #       Enable BetterTouchTool
 #   Prompt "BetterTouchTool.app" would like to receive keystrokes from any application
-#       Click on Open system Settings to open System Preferences / Security & Privacy / Input Monitoring
+#       Click on Open system Settings to open System Settings / Privacy & Security / Input Monitoring
 #           Hit the + and add BetterTouchTool.
 #   Settings
 #       Basic

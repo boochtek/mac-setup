@@ -56,9 +56,9 @@ Found by a VM test run. Each aborts the rest of its script via the ERR trap.
 
 These may be in Karabiner, or maybe just Mac key bindings.
 
-- Map `Command`+`Shift`+`,` to open System Preferences.
+- Map `Command`+`Shift`+`,` to open System Settings.
     - Because Command+, is the standard keystroke to open Preferences in applications.
-    - open "/Applications/System Preferences.app"
+    - open "/Applications/System Settings.app"
     - another app is wanting to use the same key binding
         - I think `Esc`+`,` would maybe be a better idea
             - `Esc` as modifier means "SYSTEM".

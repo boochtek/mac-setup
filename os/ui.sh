@@ -12,7 +12,7 @@ echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
 sudo -n true 2>/dev/null || sudo -v
 
 ## Reduce transparency effects.
-# System Preferences -> Accessibility -> Display -> Reduce transparency.
+# System Settings -> Accessibility -> Display -> Reduce transparency.
 sudo defaults write com.apple.universalaccess reduceTransparency -bool TRUE
 
 ## Disable animations when opening and closing windows.

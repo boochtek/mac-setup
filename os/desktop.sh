@@ -62,7 +62,7 @@ killall Finder
 
 # Install Rectangle window manager.
 brew-install-cask rectangle
-echo "TODO: Automate: System Settings > Privacy & Security > Accessibility > ENABLE Rectangle"
+echo "TODO: Automate: System Settings > Privacy & Security > Device Control and Data Access > ENABLE Rectangle"
 open-app Rectangle
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Launch on login"
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Check for updates automatically"

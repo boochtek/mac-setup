@@ -18,11 +18,11 @@ open-app 'Hidden Bar'
 defaults write -g AppleEnableMenuBarTransparency -bool FALSE
 
 # Clock - display day of week, 12-hour time (but no AM/PM) digital clock with a non-flashing separator.
-# System Preferences > Date & Time > Clock
+# System Settings > Date & Time > Clock
 # Time options: Digital
 defaults write com.apple.menuextra.clock IsAnalog -bool FALSE
 
-# System Preferences > Date & Time > Clock
+# System Settings > Date & Time > Clock
 # Time options: Display the time with seconds: off
 # Date options: Show the day of the week: on
 # Date options: Show date: always

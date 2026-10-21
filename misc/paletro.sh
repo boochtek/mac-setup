@@ -18,7 +18,7 @@ brew-install-cask paletro
 # Interactive!
 echo "Paletro installed. Opening..."
 echo "Press the 'Open System Settings' button in the pop-up window."
-echo "That will open System Settings / Privacy & Security / Accessibility"
+echo "That will open System Settings / Privacy & Security / Device Control and Data Access"
 echo "Turn Paletro to the ON position."
 echo "Authenticate to the pop-up to authorize Paletro to have control of your computer."
 echo "Hit the 'Quick Setup' button in the Paletro welcome window."

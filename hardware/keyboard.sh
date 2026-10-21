@@ -21,7 +21,7 @@ defaults write com.apple.BezelServices kDim -bool true
 # Turn off keyboard illumination when computer is not used for 5 minutes.
 defaults write com.apple.BezelServices kDimTime -int 300
 
-echo "Please go to System Preferences > Keyboard > Keyboard Shortcuts > Modifier Keys,"
+echo "Please go to System Settings > Keyboard > Keyboard Shortcuts > Modifier Keys,"
 echo "and set Globe/Fn to send Control, Control to send Option, and Option to send Globe/Fn."
 echo "Be sure you set it on the laptop's INTERNAL keyboard."
 
@@ -48,9 +48,9 @@ EOF
 sudo chmod +x /usr/local/bin/karabiner
 
 # Tell user how to manually give Karabiner-Elements the proper access.
-echo "Please go to System Preferences > Privacy & Security > Privacy > Accessibility and enable Karabiner-Elements."
-echo "Please go to System Preferences > General > Login Items & Extensions > Allow in the Background > ENABLE both Karabiner items."
-echo "Please go to System Preferences > General > Login Items & Extensions > Extensions > click on (ⓘ) next to Driver Extensions > ENABLE Karabiner virtual HID device driver."
+echo "Please go to System Settings > Privacy & Security > Device Control and Data Access and enable Karabiner-Elements."
+echo "Please go to System Settings > General > Login Items & Extensions > Allow in the Background > ENABLE both Karabiner items."
+echo "Please go to System Settings > General > Login Items & Extensions > Extensions > click on (ⓘ) next to Driver Extensions > ENABLE Karabiner virtual HID device driver."
 
 # TODO: F2 in Finder to rename, but not if in a text field.
 # TODO: Enter in Finder to open, but not if in a text field.
