@@ -15,8 +15,8 @@ brew-install-cask finicky
 # WARNING: You'll be prompted to change your default browser to Finicky. Click **Use "Finicky"**.
 open-app Finicky
 
-# TODO: Make sure Finicky starts at login.
-#   Manual: System Settings / General / Login Items / + `/Applications/Finicky.app`
+# Start Finicky at login, so links open in the right browser.
+add-login-item Finicky
 
 # NOTE: Google Chrome and its extensions are installed by ./chrome.sh.
 

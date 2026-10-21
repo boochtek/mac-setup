@@ -11,7 +11,7 @@ source "${BASH_SOURCE%/*}/../util/apps.sh"
 brew-install-cask raycast
 
 echo "Set up Raycast according to your preferences."
-echo "Set to launch at login."
+add-login-item Raycast
 
 # Set the hotkey to Control+Option+Command+Space.
 defaults write com.raycast.macos raycastGlobalHotkey "Control-Option-Command-49"
