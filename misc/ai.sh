@@ -4,9 +4,9 @@
 set -Euo pipefail
 IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
+[[ -n "${DEBUG+unset}" ]] && set -x
 
 source "${BASH_SOURCE%/*}/../util/apps.sh"
-[[ -n "${DEBUG+unset}" ]] && set -x
 
 # Anthropic Claude.
 brew-install-cask claude
