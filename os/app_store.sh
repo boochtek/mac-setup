@@ -23,15 +23,15 @@ brew install mas
 if [[ ! -e '/Applications/Bear.app' ]]; then
     mas get 1091189122 # Bear: Markdown Notes
     add-login-item Bear
-    open-app Bear -g -j
+    open-app Bear -g -j # In the background, without bringing it forward.
 fi
 
 # Install Firetask task-tracking app. Start it at login and now.
 # (The app's name may include its major version, like the App Store's "Firetask 5".)
 if ! compgen -G '/Applications/Firetask*.app' >/dev/null; then
     mas get 6480322972 # Firetask 5
-    firetask_app="$(compgen -G '/Applications/Firetask*.app')"
-    add-login-item "$firetask_app" true
+    firetask_app="$(compgen -G '/Applications/Firetask*.app' | head -1)"
+    add-login-item --hidden "$firetask_app"
     open-app "$firetask_app" -g -j
 fi
 
