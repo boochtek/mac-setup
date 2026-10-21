@@ -29,6 +29,10 @@ for dock_item in Apps Launchpad Contacts Notes Reminders Maps Messages FaceTime 
 done
 dockutil --remove 'App Store' &> /dev/null || true
 
+## Add Siri AI to the Dock.
+dockutil --find "Siri AI" &> /dev/null \
+    || dockutil --add "/System/Applications/Siri AI.app" --position end
+
 ## Add Activity Monitor to the Dock.
 dockutil --find "Activity Monitor" &> /dev/null \
     || dockutil --add "/System/Applications/Utilities/Activity Monitor.app" --position end
