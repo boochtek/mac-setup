@@ -68,4 +68,8 @@ echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Launch on login"
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Check for updates automatically"
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Remove keyboard shortcut restrictions"
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Move cursor along with window across displays"
-echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Double-click window title bar to maximize/restore"
+# Leave double-clicking a window's title bar to macOS (Desktop & Dock settings);
+# Rectangle's own double-click option conflicts with it. Make the green stoplight
+# button maximize the window, instead of going full screen.
+defaults write com.knollsoft.Rectangle doubleClickTitleBar -int 0
+defaults write com.knollsoft.Rectangle greenButtonOverride -bool true
