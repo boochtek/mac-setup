@@ -44,6 +44,6 @@ defaults write io.appmakes.Paletro-setapp palette_rule_app "$PALETTE_EXCLUSIONS"
 
 # KeyClu: Hit `Command ⌘` twice and hold to list all shortcuts in any app.
 # Shortcuts are listed by the menu items they are associated with.
-brew uninstall --quiet --cask keyclu
+brew-install-cask keyclu
 open-app KeyClu
 defaults write com.0804Team.KeyClu launchAtLogin -bool TRUE
