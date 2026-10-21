@@ -15,12 +15,13 @@ mise install python
 brew install --quiet uv
 
 # Install/upgrade Python command-line tools, each in its own environment.
-for tool in virtualenv flake8 black pylint pytest; do
+for tool in virtualenv flake8 black; do
     uv tool install --quiet --upgrade "$tool"
 done
 
 # Install/upgrade the libraries we want in the global Python, for quick scripts and the REPL.
-mise exec python -- uv pip install --quiet --system --upgrade setuptools pandas numpy matplotlib yfinance
+# (pylint and pytest go here too, since they need to import the code they check.)
+mise exec python -- uv pip install --quiet --system --upgrade setuptools pandas numpy matplotlib yfinance pylint pytest
 
 # Ruff is the new formatter and linter for Python. Start using it.
 brew install --quiet ruff
