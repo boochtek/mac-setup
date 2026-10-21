@@ -6,6 +6,7 @@ IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
 source "${BASH_SOURCE%/*}/../util/apps.sh"
+source "${BASH_SOURCE%/*}/../util/privacy.sh"
 
 # Install iTerm2.
 brew-install-cask iterm2
@@ -38,5 +39,4 @@ defaults write com.googlecode.iterm2 NSUserKeyEquivalents -dict-add "Page Setupâ
 open-app iTerm
 
 # Setup scripts change settings and apps that macOS protects.
-echo 'System Settings > Privacy & Security > Full Disk Access: ENABLE iTerm'
-echo 'System Settings > Privacy & Security > App Management: ENABLE iTerm'
+explain-terminal-permissions iTerm

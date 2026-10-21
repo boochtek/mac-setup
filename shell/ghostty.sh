@@ -6,6 +6,7 @@ IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
 source "${BASH_SOURCE%/*}/../util/apps.sh"
+source "${BASH_SOURCE%/*}/../util/privacy.sh"
 
 # Install Ghostty.
 brew-install-cask ghostty
@@ -32,5 +33,4 @@ fi
 open-app Ghostty
 
 # Setup scripts change settings and apps that macOS protects.
-echo 'System Settings > Privacy & Security > Full Disk Access: ENABLE Ghostty'
-echo 'System Settings > Privacy & Security > App Management: ENABLE Ghostty'
+explain-terminal-permissions Ghostty
