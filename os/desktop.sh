@@ -63,7 +63,7 @@ killall Finder
 # Install Rectangle window manager.
 brew-install-cask rectangle
 echo "TODO: Automate: System Settings > Privacy & Security > Accessibility > ENABLE Rectangle"
-open -a Rectangle
+open-app Rectangle
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Launch on login"
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Check for updates automatically"
 echo "TODO: Automate: Rectangle (in menu bar) Settings > ENABLE Remove keyboard shortcut restrictions"

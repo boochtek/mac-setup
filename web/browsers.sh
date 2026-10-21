@@ -13,7 +13,7 @@ source "${BASH_SOURCE%/*}/../util/apps.sh"
 # Alternatives: [Choosy](https://www.choosyosx.com/), Browser Fairy, Browserosaurus, OpenIn, Browser ChooserX
 brew-install-cask finicky
 # WARNING: You'll be prompted to change your default browser to Finicky. Click **Use "Finicky"**.
-open -a Finicky
+open-app Finicky
 
 # TODO: Make sure Finicky starts at login.
 #   Manual: System Settings / General / Login Items / + `/Applications/Finicky.app`

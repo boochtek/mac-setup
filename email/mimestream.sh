@@ -11,4 +11,4 @@ source "${BASH_SOURCE%/*}/../util/apps.sh"
 brew-install-cask mimestream
 
 dockutil --add '/Applications/Mimestream.app' --replacing 'Mimestream' --after Mail
-open -a Mimestream
+open-app Mimestream

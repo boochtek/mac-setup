@@ -17,7 +17,7 @@ brew-install-cask talon
 echo "${BLUE}You may be prompted to agree to the EULA.${RESET}"
 echo "${BLUE}You may be prompted to enable Accessibility Access:${RESET}"
 echo "${BLUE}System Settings / Privacy & Security / Accessibility / ENABLE Talon${RESET}"
-open -a Talon.app
+open-app Talon
 
 echo "${BLUE}You may need to set the microphone in the Talon menu in the menu bar.${RESET}"
 echo "${BLUE}You'll probably want to install Conformer from the Talon menu in the menu bar (in the Speech Recognition submenu).${RESET}"

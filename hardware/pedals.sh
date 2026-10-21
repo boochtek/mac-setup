@@ -18,7 +18,7 @@ source "${BASH_SOURCE%/*}/../util/apps.sh"
 
 # BetterTouchTool
 brew-install-cask bettertouchtool
-open -a BetterTouchTool
+open-app BetterTouchTool
 # Manually:
 #   Check for Updates
 #   Hit OK when asked to control "Shortcut Events.app"

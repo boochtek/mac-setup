@@ -24,3 +24,12 @@ unquarantine-casks() {
             fi
         done
 }
+
+# Open an app by its path, with any `open` options after its name.
+# Opening by name (`open -a Name`) fails right after installing the app,
+# because LaunchServices hasn't registered it yet.
+open-app() {
+    local app="$1"
+    shift
+    open "$@" "/Applications/${app%.app}.app"
+}

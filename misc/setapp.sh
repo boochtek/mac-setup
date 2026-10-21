@@ -16,7 +16,7 @@ brew-install-cask setapp
 
 # Interactive!
 echo "Setapp installed. Opening..."
-open -a Setapp &
+open-app Setapp &
 echo 'Click on the Setapp icon in the menu bar.'
 echo 'Add apps in the Setapp UI. They will appear in the Applications/Setapp folder.'
 echo 'System Settings / General / Login Items & Extensions / Open at Login: ADD '

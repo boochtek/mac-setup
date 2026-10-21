@@ -11,7 +11,7 @@ source "${BASH_SOURCE%/*}/../util/apps.sh"
 
 # Install UTM system emulator and virtual machine.
 brew-install-cask utm
-open -a UTM
+open-app UTM
 
 # Use CrystalFetch to get latest Windows ISOs.
 wget https://github.com/TuringSoftware/CrystalFetch/releases/latest/download/CrystalFetch.dmg

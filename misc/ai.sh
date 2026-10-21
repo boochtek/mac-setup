@@ -10,7 +10,7 @@ source "${BASH_SOURCE%/*}/../util/apps.sh"
 
 # Anthropic Claude.
 brew-install-cask claude
-open -a Claude
+open-app Claude
 dockutil --add '/Applications/Claude.app' --replacing 'Claude' --after 'ChatGPT' &>/dev/null
 
 # Claude Code is my preferred AI assistant (now OpenCode, if not for Anthropic subscription restrictions).
@@ -30,7 +30,7 @@ brew install --quiet bfs   # breadth-first version of `find`
 # NOTE: Includes DALL-E (generative images).
 if [[ $(arch) == 'arm64' ]]; then
     brew-install-cask chatgpt
-    open -a ChatGPT
+    open-app ChatGPT
     dockutil --add '/Applications/ChatGPT.app' --replacing 'ChatGPT' --after 'Zed' &>/dev/null
 else
     echo -n "$(tput setaf 1)ChatGPT desktop app is only available on Apple Silicon "

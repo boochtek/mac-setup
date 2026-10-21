@@ -12,7 +12,7 @@ source "${BASH_SOURCE%/*}/../util/apps.sh"
 # Install Hidden Bar to hide some items in the menu bar.
 brew-install-cask hiddenbar
 echo "Starting Hidden Bar. CHECK 'Open Hidden Bar when I login'."
-open -a 'Hidden Bar'
+open-app 'Hidden Bar'
 
 # Disable transparency in the menu bar. NOTE: Big Sur (macOS 11) seems to have dropped support for this.
 defaults write -g AppleEnableMenuBarTransparency -bool FALSE

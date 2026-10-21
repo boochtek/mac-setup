@@ -16,7 +16,7 @@ echo "Set to launch at login."
 # Set the hotkey to Control+Option+Command+Space.
 defaults write com.raycast.macos raycastGlobalHotkey "Control-Option-Command-49"
 
-open -a Raycast
+open-app Raycast
 
 
 # My settings (MANUAL):

@@ -31,4 +31,4 @@ if ! infocmp -1 xterm-ghostty &> /dev/null; then
 fi
 
 # Open Ghostty.
-open -a /Applications/Ghostty.app
+open-app Ghostty

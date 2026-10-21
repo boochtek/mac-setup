@@ -22,7 +22,7 @@ if ! brew list --cask docker &>/dev/null; then
     brew-install-cask docker
     echo "${BLUE}Walk through the Docker Desktop setup.${RESET}"
     echo "${BLUE}You may be prompted for your password.${RESET}"
-    open -a Docker.app
+    open-app Docker
 fi
 
 # NOTE: Trying to use the non-Cask version again.

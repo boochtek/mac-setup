@@ -37,4 +37,4 @@ defaults write com.googlecode.iterm2 NSUserKeyEquivalents -dict-add "Open Quickl
 defaults write com.googlecode.iterm2 NSUserKeyEquivalents -dict-add "Page Setup…" "$ZERO_WIDTH_SPACE"
 
 # Open iTerm2.
-open -a /Applications/iTerm.app
+open-app iTerm

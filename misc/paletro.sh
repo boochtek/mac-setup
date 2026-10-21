@@ -24,7 +24,7 @@ echo "Authenticate to the pop-up to authorize Paletro to have control of your co
 echo "Hit the 'Quick Setup' button in the Paletro welcome window."
 echo "Finish the dialog."
 echo "See misc/Paletro-Accessibility-Access-request-dialog.png"
-open -a Paletro &
+open-app Paletro &
 echo "Press Enter to continue..."
 read -r
 # NOTE: I think I had to run it a 2nd time.
@@ -45,5 +45,5 @@ defaults write io.appmakes.Paletro-setapp palette_rule_app "$PALETTE_EXCLUSIONS"
 # KeyClu: Hit `Command ⌘` twice and hold to list all shortcuts in any app.
 # Shortcuts are listed by the menu items they are associated with.
 brew uninstall --quiet --cask keyclu
-open -a KeyClu
+open-app KeyClu
 defaults write com.0804Team.KeyClu launchAtLogin -bool TRUE

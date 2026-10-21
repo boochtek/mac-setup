@@ -9,5 +9,5 @@ source "${BASH_SOURCE%/*}/../util/apps.sh"
 
 # Install Hammerspoon
 brew-install-cask hammerspoon
-open -a Hammerspoon
+open-app Hammerspoon
 echo "TODO: enable Hammerspoon in System Settings > Privacy & Security > Accessibility"

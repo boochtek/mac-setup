@@ -9,7 +9,7 @@ source "${BASH_SOURCE%/*}/../util/apps.sh"
 
 ## Install and configure Cursor. NOTE: You'll need an API key.
 brew-install-cask cursor
-open -a Cursor
+open-app Cursor
 
 dockutil --add '/Applications/Cursor.app' --replacing 'Cursor' --after 'Zed' &>/dev/null
 brew install --quiet cursor-cli
