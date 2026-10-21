@@ -18,6 +18,6 @@ if ! gh auth status > /dev/null 2>&1 ; then
     gh auth login
 fi
 
-# NOTE: You have to be authenticated to install extensions.
-# GitHub Copilot extension for gh. Use `gh copilot suggest` or `gh copilot explain` to use it.
-gh extension install github/gh-copilot 2> /dev/null
+# GitHub Copilot CLI (`copilot`). It replaced the retired `gh copilot` extension.
+# NOTE: It requires a Copilot subscription; log in with `/login` on first run.
+brew install --quiet --cask copilot-cli
