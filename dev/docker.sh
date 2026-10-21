@@ -6,6 +6,7 @@ IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
 source "${BASH_SOURCE%/*}/../util/apps.sh"
+source "${BASH_SOURCE%/*}/../util/colors.sh"
 
 # TODO: Try Docker replacements: podman, colima, etc.
 
@@ -18,7 +19,7 @@ if ! brew list --cask docker &>/dev/null; then
     # NOTE: The Cask version now includes Docker Compose.
     echo "${BLUE}TODO: I want to stop using Docker Engine.${RESET}"
     echo "${BLUE}It's quicker to get the server running using Docker Desktop.${RESET}"
-    echo "${BLUE}You may be prompted to agree to allow `sudo`.${RESET}"
+    echo "${BLUE}You may be prompted to agree to allow \`sudo\`.${RESET}"
     brew-install-cask docker
     echo "${BLUE}Walk through the Docker Desktop setup.${RESET}"
     echo "${BLUE}You may be prompted for your password.${RESET}"
