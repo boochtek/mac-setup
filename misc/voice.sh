@@ -23,12 +23,12 @@ echo "${BLUE}You may need to set the microphone in the Talon menu in the menu ba
 echo "${BLUE}You'll probably want to install Conformer from the Talon menu in the menu bar (in the Speech Recognition submenu).${RESET}"
 
 # Download community Talon user files to configure vocabulary/commands/actions.
-(cd ~ && mkdir -p .config/talon && ln -s .config/talon .talon)
-(cd ~/.config/talon/user && \
-    git clone https://github.com/talonhub/community && \
-    git clone https://github.com/phillco/talon_axkit && \
-    git clone https://github.com/cursorless-dev/cursorless-talon.git
-)
+# (Talon creates `user/` on its first run, which may not have happened yet.)
+mkdir -p ~/.config/talon/user
+[[ -L ~/.talon ]] || ln -s .config/talon ~/.talon
+for repo in talonhub/community phillco/talon_axkit cursorless-dev/cursorless-talon; do
+    [[ -d ~/.config/talon/user/"${repo#*/}" ]] || git clone "https://github.com/$repo" ~/.config/talon/user/"${repo#*/}"
+done
 
 # TODO: Install Parrot to enable clicks, pops, etc.
 #brew install --quiet six
@@ -37,13 +37,17 @@ echo "${BLUE}You'll probably want to install Conformer from the Talon menu in th
 # TODO: Other speech recognition engines.
 #pip3 install vosk
 
-# Install VS Code extension for TalonScript support.
-code --install-extension mrob95.vscode-talonscript
-# Install VS Code extensions for Cursorless.
-code --install-extension pokey.cursorless
-code --install-extension pokey.parse-tree
-code --install-extension pokey.command-server
-code --install-extension pokey.semantic-movement # Optional.
+if command -v code &>/dev/null; then
+    # Install VS Code extension for TalonScript support.
+    code --install-extension mrob95.vscode-talonscript
+    # Install VS Code extensions for Cursorless.
+    code --install-extension pokey.cursorless
+    code --install-extension pokey.parse-tree
+    code --install-extension pokey.command-server
+    code --install-extension pokey.semantic-movement # Optional.
+else
+    echo "${BLUE}Install VS Code (editors/vscode.sh), then re-run this for its Talon extensions.${RESET}"
+fi
 
 
 # Handy is Open Source, uses Whisper Small locally.
