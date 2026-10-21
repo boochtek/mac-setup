@@ -40,7 +40,7 @@ with-ruby() {
 RUBY_VERSION="$(with-ruby ruby -e 'print RUBY_VERSION')"
 
 # Install some gems for ONLY the latest Ruby.
-brew-install-cask wkhtmltopdf
+# (The wkhtmltopdf cask is gone; its project is archived.)
 with-ruby gem install kramdown
 with-ruby gem install rsense
 with-ruby gem install ruby-beautify

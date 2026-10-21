@@ -31,7 +31,6 @@ Found by a VM test run; each one aborts its script.
     - casks `font-noto-mono`, `font-source-sans-pro`, `font-source-serif-pro`
       (`os/fonts.sh`; probably superseded by `font-noto-sans-mono`,
       `font-source-sans-3`, `font-source-serif-4`)
-    - cask `wkhtmltopdf` (`dev/ruby.sh`; the project is archived)
     - cask `sublime-text3` (`editors/sublime.sh`; now `sublime-text`)
     - cask `atom` (`editors/atom.sh`; discontinued)
     - formulae `crystal-lang` (now `crystal`) and `plt-racket` (`dev/`)
