@@ -223,8 +223,8 @@ Fixing them first will make the remaining issues much easier to find.
 
 Fixed on the `macos-27-fixes` branch, unless noted:
 
-- **A** `HOMEBREW_NO_ASK`; **A2** `brew-install-cask` (and a one-time sweep of
-  installed apps); **C** bootstrap tools in `init/homebrew.sh`, plus
+- **A** `HOMEBREW_NO_ASK`; **A2** `brew-install-cask` (and, by hand, a one-time
+  sweep of the apps already installed); **C** bootstrap tools in `init/homebrew.sh`, plus
   `command -v` guards; **D** `open-app`; **E** Full Disk Access check;
   **F** replacements, including the `7onnie/tap/mysides` fork;
   **G** `XDG_CONFIG_HOME`; **H** mise tools come from the config files'
@@ -235,6 +235,11 @@ Fixed on the `macos-27-fixes` branch, unless noted:
     - **#50**: a manual `brew install` with no name; nothing to fix.
 - **#01**, **#02**, **#39/#40**, and the interactive `HOMEBREW_NO_ASK`
   are in the config files repo.
-- **#06**, **#07/#08**, **#22/#59**, **#55**: fixed.
+- **#06**, **#07/#08**, **#22/#59**: fixed.
+- **#55**: Setapp now starts at login via a script. The dangling "Install and
+  configure Supercharge:" line is still there; it needs the actual steps.
+- `wkhtmltopdf` was also dropped from `dev/ruby.sh` (no longer in Homebrew).
 - Rectangle: macOS's own double-click setting is left at its default.
+- **G**: the 2 trust files were merged by hand into `~/.config/homebrew/trust.json`
+  (the old one is `~/.homebrew/trust.json.merged-into-config`).
 - More packages Homebrew no longer has are listed in `TODO.md`.

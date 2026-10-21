@@ -25,7 +25,14 @@ Found by a VM test run; each one aborts its script.
 - `homebrew/command-not-found` tap is deprecated and now empty
   (`init/homebrew.sh`).
 - `pidof` was disabled upstream 2026-01-12 (`os/misc.sh`).
-- `qlstephen` is deprecated and will be disabled 2026-09-22 (`os/quicklook.sh`).
+- `os/quicklook.sh` aborts at the first disabled cask. Disabled 2026-09-27:
+  `qlstephen`, `qlcolorcode`, `qlprettypatch`, `quicklook-csv`, `webpquicklook`,
+  `avifquicklook`; disabled 2025-12-23: `quicklook-json`. (Quick Look generators
+  no longer load on macOS 15+ anyway.) Its QLStephen and QLColorCode plist edits
+  also run before those casks are installed.
+- `gemini-cli` is deprecated (to be disabled 2026-12-18).
+- `os/virtualization.sh` still installs virtualOS by searching its name; use
+  `app-store-install` with its App Store ID instead.
 - No longer in Homebrew (found 2026-10-19; not yet hit, since earlier failures
   stopped those scripts first):
     - casks `font-noto-mono`, `font-source-sans-pro`, `font-source-serif-pro`
@@ -41,8 +48,6 @@ Found by a VM test run. Each aborts the rest of its script via the ERR trap.
 
 - `killall` fails when the process isn't running: `os/ui.sh` (SystemUIServer)
   and `os/desktop.sh` (Finder). Should tolerate a missing process.
-- `os/quicklook.sh` copies QLColorCode's `Info.plist` without checking that
-  QLColorCode is installed.
 - Installing the 1Password CLI cask can't write its zsh completions:
   `Operation not permitted @ dir_s_mkdir - /opt/homebrew/share/zsh`.
 - macOS Bash 3.2 runs the ERR trap for `$(cmd 2>/dev/null)` used as an `if`
@@ -96,5 +101,10 @@ These may be in Karabiner, or maybe just Mac key bindings.
 - Decide whether `~/.config/homebrew/` (it holds `brew trust`'s `trust.json`)
   should be committed to the config files repo, or ignored.
 - `defaults+` segfaults when reading a top-level (non-nested) key.
+- `os/defaults+.sh` makes `/usr/local/bin` group-writable (`root:staff g+w`), so
+  anything in the staff group can replace `defaults+` or `karabiner` there.
+  Now that uv runs `defaults+`, consider installing it in `~/.local/bin` instead.
+- `HOMEBREW_NO_ASK` is also set for interactive shells (config files), so typos
+  in `brew install` no longer get a confirmation prompt.
 - Figure out how to restore from backups.
 - Pull config_files.PRIVATE from wherever it belongs.
