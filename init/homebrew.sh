@@ -72,5 +72,10 @@ brew doctor
 # Install command-not-found support, to tell us how to install missing commands.
 brew tap homebrew/command-not-found
 
+# Install tools that setup scripts use before the script that installs them runs:
+# `mas` (App Store), `dockutil` (Dock), `git-lfs` (some taps), `wget` (downloads).
+brew install --quiet mas dockutil git-lfs wget
+git lfs install
+
 ## Fix permissions on Homebrew share directory, so Zsh completion doesn't complain.
 chmod g-w /opt/homebrew/share
