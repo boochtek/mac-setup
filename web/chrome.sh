@@ -32,6 +32,9 @@ brew install --quiet 8ta4/extension/extension
 # NOTE: You may need to configure the extensions.
 # NOTE: You may need to log in to the extensions.
 
+# `extension` fails if Chrome has never run, because this directory does not exist yet.
+mkdir -p "$HOME/Library/Application Support/Google/Chrome/External Extensions"
+
 # uBlock Origin
 extension install chrome cjpalhdlnbpafiamejdnhcphjbkeiagm
 
