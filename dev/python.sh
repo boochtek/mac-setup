@@ -11,21 +11,16 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 mise install python
 # TODO: See if there are any old versions we want to get rid of. Maybe ask?
 
-# Install/upgrade all the standard Python packages.
-pip install --upgrade pip
-pip install --upgrade setuptools
-pip install --upgrade virtualenv
-pip install --upgrade flake8
-pip install --upgrade black
-pip install --upgrade pylint
-pip install --upgrade pytest
-pip install --upgrade pandas
-pip install --upgrade numpy
-pip install --upgrade matplotlib
-pip install --upgrade yfinance
-
-# UV is the new Python package manager. Start using it.
+# UV is the new Python package manager.
 brew install --quiet uv
+
+# Install/upgrade Python command-line tools, each in its own environment.
+for tool in virtualenv flake8 black pylint pytest; do
+    uv tool install --quiet --upgrade "$tool"
+done
+
+# Install/upgrade the libraries we want in the global Python, for quick scripts and the REPL.
+mise exec python -- uv pip install --quiet --system --upgrade setuptools pandas numpy matplotlib yfinance
 
 # Ruff is the new formatter and linter for Python. Start using it.
 brew install --quiet ruff
