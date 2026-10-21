@@ -19,4 +19,5 @@ cd "$(dirname "$0")" || exit 1
 ./setapp.sh
 ./video.sh
 ./voice.sh
+./weasyprint.sh
 ./email-sweep-schedule.sh
