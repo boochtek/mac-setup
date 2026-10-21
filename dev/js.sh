@@ -7,7 +7,7 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 
 # Dependencies: `mise`
 
-## Install Bun. (Versions come from the mise config in the config files.)
+## Install Bun. (Versions come from ~/.config/mise/config.toml.)
 mise install bun
 
 # TODO: See if there are any old versions we want to get rid of. Maybe ask?

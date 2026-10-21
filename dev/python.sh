@@ -7,7 +7,7 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 
 # Dependencies: `mise`
 
-## Install Python. (The version comes from the mise config in the config files.)
+## Install Python. (The version comes from ~/.config/mise/config.toml.)
 mise install python
 # TODO: See if there are any old versions we want to get rid of. Maybe ask?
 
@@ -21,7 +21,8 @@ done
 
 # Install/upgrade the libraries we want in the global Python, for quick scripts and the REPL.
 # (pylint and pytest go here too, since they need to import the code they check.)
-mise exec python -- uv pip install --quiet --system --upgrade setuptools pandas numpy matplotlib yfinance pylint pytest
+PYTHON_LIBRARIES=(setuptools pandas numpy matplotlib yfinance pylint pytest)
+mise exec python -- uv pip install --quiet --system --upgrade "${PYTHON_LIBRARIES[@]}"
 
 # Ruff is the new formatter and linter for Python. Start using it.
 brew install --quiet ruff
