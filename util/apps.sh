@@ -2,29 +2,43 @@
 
 ## Helper functions for installing apps.
 
-# Install casks, then clear the quarantine flag on their apps, so macOS doesn't ask
-# "... is an app downloaded from the Internet. Are you sure you want to open it?"
+# Install casks without macOS's "downloaded from the Internet" prompt on first open.
 brew-install-cask() {
     brew install --quiet --cask "$@"
-    unquarantine-casks "$@"
+    unquarantine-cask-apps "$@"
 }
 
-# Clear the quarantine flag on the apps that official Homebrew casks installed.
-# (Homebrew 7 removed `--no-quarantine`.) Apps from third-party taps keep the flag,
-# so Gatekeeper still checks them on first launch. Only handles `app` artifacts.
-# Changing an app requires the terminal to have App Management permission.
-unquarantine-casks() {
-    local app app_path
+# Only for official casks; Gatekeeper still checks apps from third-party taps.
+# (Homebrew 7 removed `--no-quarantine`.)
+unquarantine-cask-apps() {
+    local app
+    official-cask-apps "$@" | while IFS= read -r app; do
+        unquarantine-app "$app"
+    done
+}
+
+# Names of the apps that official casks install. An `app` artifact is ["Foo.app"],
+# or ["Foo.app", {"target": "Bar.app"}] when the cask renames the app.
+official-cask-apps() {
     brew info --cask --json=v2 "$@" |
-        jq -r '.casks[] | select(.tap == "homebrew/cask") | .artifacts[] | .app // empty | .[1].target? // .[0]' |
-        while IFS= read -r app; do
-            app_path="$(app-path "$app")"
-            if xattr -p com.apple.quarantine "$app_path" &>/dev/null; then
-                # Helper apps inside the bundle are quarantined too.
-                xattr -dr com.apple.quarantine "$app_path" 2>/dev/null ||
-                    echo "WARNING: Could not unquarantine $app. Give this terminal App Management permission." >&2
-            fi
-        done
+        jq -r '.casks[] | select(.tap == "homebrew/cask") | .artifacts[] | .app // empty | .[1].target? // .[0]'
+}
+
+unquarantine-app() {
+    local app_path
+    app_path="$(app-path "$1")"
+    xattr -p com.apple.quarantine "$app_path" &>/dev/null || return 0
+    # Recursive, because helper apps inside the bundle are quarantined too.
+    xattr -dr com.apple.quarantine "$app_path" 2>/dev/null ||
+        echo "WARNING: Could not unquarantine $1. Give this terminal App Management permission." >&2
+}
+
+# Install an App Store app by its ID, unless it's installed. Unlike `mas install`
+# (and `mas lucky`), `mas get` also gets free apps this Apple ID hasn't gotten.
+# IDs avoid ambiguous matches when searching by name.
+app-store-install() {
+    local id="$1" app="$2"
+    [[ -e "$(app-path "$app")" ]] || mas get "$id"
 }
 
 # The path of an app, given its name (in /Applications) or its path.
@@ -36,25 +50,31 @@ app-path() {
     fi
 }
 
-# Open an app by its path, with any `open` options after its name or path.
-# Opening by name (`open -a Name`) fails right after installing the app,
-# because LaunchServices hasn't registered it yet.
+# Open an app by its path, optionally `--background` (without bringing it forward).
+# (`open -a Name` fails right after installing the app; LaunchServices hasn't registered it yet.)
 open-app() {
-    local app_path
-    app_path="$(app-path "$1")"
-    shift
-    open "$@" "$app_path"
+    if [[ "$1" == --background ]]; then
+        open -g -j "$(app-path "$2")"
+    else
+        open "$(app-path "$1")"
+    fi
 }
 
-# Start an app at login, unless it already does. Takes the app's name or path,
-# optionally preceded by `--hidden` to start it hidden.
+# Start an app at login, unless it already does. Optionally `--hidden`.
 add-login-item() {
-    local hidden=false app_path name
+    local hidden=false app_path
     if [[ "$1" == --hidden ]]; then
         hidden=true
         shift
     fi
     app_path="$(app-path "$1")"
-    name="$(basename "$app_path" .app)"
-    osascript -e "tell application \"System Events\" to if not (exists login item \"$name\") then make login item at end with properties {path:\"$app_path\", hidden:$hidden}" >/dev/null
+    osascript - "$(basename "$app_path" .app)" "$app_path" "$hidden" >/dev/null <<'APPLESCRIPT'
+on run {itemName, itemPath, isHidden}
+    tell application "System Events"
+        if not (exists login item itemName) then
+            make login item at end with properties {path:itemPath, hidden:(isHidden is "true")}
+        end if
+    end tell
+end run
+APPLESCRIPT
 }

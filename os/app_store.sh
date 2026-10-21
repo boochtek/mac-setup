@@ -16,24 +16,18 @@ defaults write com.apple.appstore 'ShowDebugMenu' -bool TRUE
 # Install MAS.
 brew install mas
 
-# Install apps by their App Store IDs. Unlike `mas install` (and `mas lucky`),
-# `mas get` also installs free apps that this Apple ID hasn't gotten before.
-
 # Install Bear note-taking app. Start it at login and now.
-if [[ ! -e '/Applications/Bear.app' ]]; then
-    mas get 1091189122 # Bear: Markdown Notes
-    add-login-item Bear
-    open-app Bear -g -j # In the background, without bringing it forward.
-fi
+app-store-install 1091189122 Bear # Bear: Markdown Notes
+add-login-item Bear
+open-app --background Bear
 
 # Install Firetask task-tracking app. Start it at login and now.
-# (The app's name may include its major version, like the App Store's "Firetask 5".)
-if ! compgen -G '/Applications/Firetask*.app' >/dev/null; then
-    mas get 6480322972 # Firetask 5
-    firetask_app="$(compgen -G '/Applications/Firetask*.app' | head -1)"
-    add-login-item --hidden "$firetask_app"
-    open-app "$firetask_app" -g -j
-fi
+# Its app name may include its major version, like the App Store's "Firetask 5".
+FIRETASK_APPS='/Applications/Firetask*.app'
+compgen -G "$FIRETASK_APPS" >/dev/null || mas get 6480322972 # Firetask 5
+firetask_app="$(compgen -G "$FIRETASK_APPS" | head -1)"
+add-login-item --hidden "$firetask_app"
+open-app --background "$firetask_app"
 
 # TODO: More apps from the App Store.
 # TODO: What else should we auto-start?

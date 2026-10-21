@@ -31,8 +31,7 @@ if [[ ! -f "$OP_BIOMETRIC_UNLOCK_ENABLED_FILE" ]]; then
     echo "  Make sure Touch ID is enabled in 1Password app: Settings > Security > Touch ID."
 fi
 
-# Install by App Store ID; searching by name can match several apps.
-[[ -e '/Applications/1Password for Safari.app' ]] || mas get 1569813296 # 1Password for Safari
+app-store-install 1569813296 '1Password for Safari'
 
 # TODO: Install other browser extensions.
 # TODO: Document using 1Password's SSH agent.
