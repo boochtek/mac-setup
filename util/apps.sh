@@ -18,10 +18,11 @@ unquarantine-cask-apps() {
 }
 
 # Names of the apps that official casks install. An `app` artifact is ["Foo.app"],
-# or ["Foo.app", {"target": "Bar.app"}] when the cask renames the app.
+# or ["Foo.app", {"target": "Bar.app"}] when the cask renames the app. Without a
+# target, an app in a subfolder ("Folder/Foo.app") is installed as "Foo.app".
 official-cask-apps() {
     brew info --cask --json=v2 "$@" |
-        jq -r '.casks[] | select(.tap == "homebrew/cask") | .artifacts[] | .app // empty | .[1].target? // .[0]'
+        jq -r '.casks[] | select(.tap == "homebrew/cask") | .artifacts[] | .app // empty | .[1].target? // (.[0] | split("/") | last)'
 }
 
 unquarantine-app() {
@@ -29,7 +30,8 @@ unquarantine-app() {
     app_path="$(app-path "$1")"
     xattr -p com.apple.quarantine "$app_path" &>/dev/null || return 0
     # Recursive, because helper apps inside the bundle are quarantined too.
-    xattr -dr com.apple.quarantine "$app_path" 2>/dev/null ||
+    # -s: change symlinks themselves, not what they point to.
+    xattr -drs com.apple.quarantine "$app_path" 2>/dev/null ||
         echo "WARNING: Could not unquarantine $1. Give this terminal App Management permission." >&2
 }
 
