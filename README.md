@@ -177,6 +177,14 @@ find . -name '*.sh' -not -path './.git/*' ! -perm -u+x -exec head -1 {} \; -prin
 `'../util/colors.sh'` resolves against whatever directory the caller happened to
 be in, so it works only by luck.
 
+**Install and open apps with the helpers in `util/apps.sh`.**
+`brew-install-cask` (instead of `brew install --cask`) clears the quarantine
+flag on apps from official casks, so they open without a Gatekeeper prompt.
+`open-app` opens an app by its path, which works right after installing it.
+`app-store-install` installs an App Store app by its ID, and `add-login-item`
+starts an app at login. Tools that several scripts use (`mas`, `dockutil`,
+`git-lfs`, `wget`, `uv`) are installed by `init/homebrew.sh`.
+
 **A script that has nothing to do should `exit 0`, not `return`.** `return`
 outside a function is an error in an executed script — it only works when the
 file is sourced.
