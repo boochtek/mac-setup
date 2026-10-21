@@ -240,6 +240,10 @@ Fixed on the `macos-27-fixes` branch, unless noted:
   configure Supercharge:" line is still there; it needs the actual steps.
 - `wkhtmltopdf` was also dropped from `dev/ruby.sh` (no longer in Homebrew).
 - Rectangle: macOS's own double-click setting is left at its default.
-- **G**: the 2 trust files were merged by hand into `~/.config/homebrew/trust.json`
-  (the old one is `~/.homebrew/trust.json.merged-into-config`).
+- **G**: the 2 trust files were merged by hand into `~/.config/homebrew/trust.json`,
+  and `~/.homebrew` is now a symlink to `~/.config/homebrew` (the config files'
+  `install.sh` makes it on new Macs).
+- Later decisions (2026-10-20): no more Sublime Text or Deno; `mise prune`
+  removes old Ruby and Python versions; Siri AI goes in the Dock. A separate
+  session is recommending a wkhtmltopdf replacement.
 - More packages Homebrew no longer has are listed in `TODO.md`.
