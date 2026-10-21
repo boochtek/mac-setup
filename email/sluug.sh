@@ -87,7 +87,12 @@ chmod +x "$HOME/bin/sluug-mail-mcp"
 
 # Register the MCP server with Claude Code. Idempotent — re-running this
 # replaces an existing registration of the same name.
-claude mcp add --scope user sluug-mail "$HOME/bin/sluug-mail-mcp"
+if command -v claude &>/dev/null; then
+    claude mcp add --scope user sluug-mail "$HOME/bin/sluug-mail-mcp"
+else
+    echo "Install Claude Code (misc/ai.sh), then run:"
+    echo "    claude mcp add --scope user sluug-mail \"\$HOME/bin/sluug-mail-mcp\""
+fi
 
 # Verify the wrapper can authenticate end-to-end (IMAP + SMTP):
 #   ~/bin/sluug-mail-mcp test sluug
