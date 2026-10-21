@@ -85,8 +85,9 @@ brew install pv
 brew install midnight-commander
 
 # Occasionally we need to decompress FLAC and RAR files.
+# (`unar` replaces the `rar` cask, which Homebrew disabled for failing Gatekeeper.)
 brew install flac
-brew install rar
+brew install unar
 
 # It's nice to occasionally show a fortune.
 brew install fortune

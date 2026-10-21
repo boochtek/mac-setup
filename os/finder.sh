@@ -79,34 +79,28 @@ defaults write com.apple.finder SidebarWidth -int 175
 defaults write com.apple.finder FK_SidebarWidth -int 175
 
 # Set the favorites in the side bar of Finder windows, as well as Open/Save dialogs.
-brew install --quiet mysides
-mysides remove / >/dev/null # Oddly, AirDrop is named `/` here.
-mysides remove Recents >/dev/null
-mysides remove Home >/dev/null # Note that it's displayed with the username, not "Home".
-mysides remove Applications >/dev/null
-mysides remove Utilities >/dev/null
-mysides remove Desktop >/dev/null
-mysides remove Documents >/dev/null
-mysides remove Downloads >/dev/null
-mysides remove Projects >/dev/null
-mysides remove Pictures >/dev/null
-mysides remove Music >/dev/null
-mysides remove Movies >/dev/null
-mysides remove Screenshots >/dev/null
-mysides remove Config >/dev/null
-mysides remove Work >/dev/null
-mysides remove Personal >/dev/null
-mysides remove Developer >/dev/null
-mysides remove Library >/dev/null
+# Homebrew disabled the original mysides; this is a maintained rewrite with the same commands.
+brew trust --formula 7onnie/tap/mysides
+brew install --quiet 7onnie/tap/mysides
+# Oddly, AirDrop is named `/` here. Home is displayed with the username, not "Home".
+# Removing an item that isn't in the sidebar fails, so ignore failures.
+for item in / Recents Home Applications Utilities Desktop Documents Downloads Projects Pictures \
+    Music Movies Screenshots Config Work Personal Developer Library; do
+    mysides remove "$item" &>/dev/null || true
+done
 
 mysides add Home "file://$HOME/"
 [[ -L "$HOME/Config Files" ]] || ln -s "$HOME/.config" "$HOME/Config Files"
 mysides add 'Config Files' "file://$HOME/Config%20Files/"
-[[ -L "$HOME/Developer" ]] || ln -s "$HOME/Work" "$HOME/Developer"
-mysides add Developer "file://$HOME/Developer/"
+# Adding a folder that doesn't exist fails.
+if [[ -d "$HOME/Work" ]]; then
+    [[ -L "$HOME/Developer" ]] || ln -s "$HOME/Work" "$HOME/Developer"
+    mysides add Developer "file://$HOME/Developer/"
+fi
 [[ -d $HOME/Personal ]] && mysides add Personal "file://$HOME/Personal/"
 mysides add Downloads "file://$HOME/Downloads/"
 mysides add Pictures "file://$HOME/Pictures/"
+mkdir -p "$HOME/Pictures/Screenshots"
 mysides add Screenshots "file://$HOME/Pictures/Screenshots/"
 mysides add Music "file://$HOME/Music/"
 mysides add Library "file://$HOME/Library/"

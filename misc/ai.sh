@@ -38,7 +38,7 @@ else
 fi
 
 # OpenAI Codex CLI.
-#brew install codex-cli
+brew-install-cask codex
 
 # [OpenCode](https://opencode.com/) and its dependencies.
 brew install --quiet oven-sh/bun/bun

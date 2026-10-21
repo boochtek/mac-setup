@@ -13,8 +13,8 @@ brew-install-cask vlc
 # IINA is a newer Mac-only video player.
 brew-install-cask iina
 
-# This is the go-to distribution of MPV for Mac.
-brew-install-cask stolendata-mpv
+# MPV is a minimal, scriptable video player. (Homebrew disabled the stolendata-mpv cask.)
+brew install --quiet mpv
 
 # Note that there's an outdated non-cask version of HandBrake.
 brew-install-cask handbrake
