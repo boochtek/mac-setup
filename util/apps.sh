@@ -1,4 +1,5 @@
-#!/bin/bash
+# This file is sourced. Tell shellcheck it's Bash:
+# shellcheck shell=bash
 
 ## Helper functions for installing apps.
 
