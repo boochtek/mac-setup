@@ -32,7 +32,5 @@ fi
 # TODO: What else should we auto-start?
 # TODO: Add items to Dock, as appropriate. (Make sure we've installed dockutils before this gets run.)
 
-dockutil --remove  'App Store'
-
 # Update all App Store apps.
 mas upgrade

@@ -7,7 +7,8 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 
 source "${BASH_SOURCE%/*}/../util/apps.sh"
 
-source "${BASH_SOURCE%/*}/../os/dock.sh"
+# We use dockutil to add the app to the Dock.
+brew install --quiet dockutil
 
 # Install Ghostty.
 brew-install-cask ghostty
