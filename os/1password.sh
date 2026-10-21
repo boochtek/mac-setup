@@ -31,16 +31,8 @@ if [[ ! -f "$OP_BIOMETRIC_UNLOCK_ENABLED_FILE" ]]; then
     echo "  Make sure Touch ID is enabled in 1Password app: Settings > Security > Touch ID."
 fi
 
-# TODO: Use this for virtualOS too.
-mas_install() {
-    local app_name="$1"
-    local app_id
-    app_id="$(mas search "${app_name}" | grep "${app_name}" | awk '{ print $1 }')"
-    mas purchase "${app_id}"
-    mas install "${app_id}"
-}
-
-mas_install '1Password for Safari'
+# Install by App Store ID; searching by name can match several apps.
+mas get 1569813296 # 1Password for Safari
 
 # TODO: Install other browser extensions.
 # TODO: Document using 1Password's SSH agent.

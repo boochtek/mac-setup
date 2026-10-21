@@ -5,6 +5,8 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 # Show Debug menu in App Store app.
 defaults write com.apple.appstore 'ShowDebugMenu' -bool TRUE
 
@@ -14,18 +16,23 @@ defaults write com.apple.appstore 'ShowDebugMenu' -bool TRUE
 # Install MAS.
 brew install mas
 
+# Install apps by their App Store IDs. Unlike `mas install` (and `mas lucky`),
+# `mas get` also installs free apps that this Apple ID hasn't gotten before.
+
 # Install Bear note-taking app. Start it at login and now.
 if [[ ! -e '/Applications/Bear.app' ]]; then
-    mas list | grep -q 'Bear: Markdown Notes' || mas lucky 'Bear: Markdown Notes'
-    osascript -e 'tell application "System Events" to make login item with properties {path:"/Applications/Bear.app", hidden:false}' >/dev/null
-    open -gj -a 'Bear'
+    mas get 1091189122 # Bear: Markdown Notes
+    add-login-item Bear
+    open-app Bear -g -j
 fi
 
 # Install Firetask task-tracking app. Start it at login and now.
-if [[ ! -e '/Applications/Firetask.app' ]]; then
-    mas list | grep -q 'Firetask' || mas lucky 'Firetask'
-    osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Firetask.app", hidden:true}' >/dev/null
-    open -gj -a 'Firetask'
+# (The app's name may include its major version, like the App Store's "Firetask 5".)
+if ! compgen -G '/Applications/Firetask*.app' >/dev/null; then
+    mas get 6480322972 # Firetask 5
+    firetask_app="$(compgen -G '/Applications/Firetask*.app')"
+    add-login-item "$firetask_app" true
+    open-app "$firetask_app" -g -j
 fi
 
 # TODO: More apps from the App Store.

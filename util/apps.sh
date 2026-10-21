@@ -25,11 +25,30 @@ unquarantine-casks() {
         done
 }
 
-# Open an app by its path, with any `open` options after its name.
+# The path of an app, given its name (in /Applications) or its path.
+app-path() {
+    if [[ "$1" == /* ]]; then
+        echo "$1"
+    else
+        echo "/Applications/${1%.app}.app"
+    fi
+}
+
+# Open an app by its path, with any `open` options after its name or path.
 # Opening by name (`open -a Name`) fails right after installing the app,
 # because LaunchServices hasn't registered it yet.
 open-app() {
-    local app="$1"
+    local app_path
+    app_path="$(app-path "$1")"
     shift
-    open "$@" "/Applications/${app%.app}.app"
+    open "$@" "$app_path"
+}
+
+# Start an app at login, unless it already does. Takes the app's name or path,
+# then optionally `true` to start it hidden.
+add-login-item() {
+    local app_path name
+    app_path="$(app-path "$1")"
+    name="$(basename "$app_path" .app)"
+    osascript -e "tell application \"System Events\" to if not (exists login item \"$name\") then make login item at end with properties {path:\"$app_path\", hidden:${2:-false}}" >/dev/null
 }
