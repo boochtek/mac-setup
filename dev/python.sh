@@ -5,18 +5,11 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
-# Dependencies: `asdf`
+# Dependencies: `mise`
 
-## Install and configure various versions of Python.
-mise install python 3.13
+## Install Python. (The version comes from the mise config in the config files.)
+mise install python
 # TODO: See if there are any old versions we want to get rid of. Maybe ask?
-
-# Set the global version of Python, and also use it for this shell.
-mise shell python 3.13
-
-# Make sure we're using the right version of Python.
-rehash
-hash -r
 
 # Install/upgrade all the standard Python packages.
 pip install --upgrade pip
