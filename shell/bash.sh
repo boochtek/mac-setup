@@ -9,8 +9,8 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 # Apple will likely never upgrade Bash; they'll stick with the last GPL 2 version.
 brew install bash
 
-# Install Bash command-line completion.
-brew install bash-completion
+# Install Bash command-line completion. (Version 2 is for Bash 4.2+; plain bash-completion is for Bash 3.)
+brew install bash-completion@2
 
 # Allow Homebrew version of Bash to be used as login shell.
 # sudo ansible localhost -m lineinfile -a "dest=/etc/shells line=/usr/local/bin/bash"
