@@ -6,7 +6,6 @@ cd "$(dirname "$0")" || exit 1
 ./vscode.sh
 ./cursor.sh
 ./zed.sh
-./sublime.sh
 ./neovim.sh
 ./vim.sh
 ./emacs.sh
