@@ -46,6 +46,9 @@ nano ENV.sh
 
 4. Run the initialization.
     - This will install CLT, Homebrew, and my config files.
+    - The terminal app needs Full Disk Access (and App Management) first:
+      System Settings > Privacy & Security. If it lacks it, this says so, opens
+      System Settings, and stops; quit and reopen the terminal after granting it.
     - On a Mac with Touch ID, it first enables Touch ID for `sudo`, so the one
       password prompt it takes to set that up is the only one you'll need.
 

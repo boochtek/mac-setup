@@ -11,4 +11,6 @@ if source ./ENV.sh && source ./util/privacy.sh && require-full-disk-access; then
     source ./init/command-line-tools.sh
     source ./init/homebrew.sh
     source ./init/config-files.sh
+else
+    return 1
 fi
