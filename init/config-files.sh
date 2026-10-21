@@ -27,3 +27,8 @@ if [[ ! -d "$HOME/.config" ]]; then
         echo "         Continuing without them; re-run init.sh to retry." >&2
     fi
 fi
+
+# New shells get this from the config files; set it for this shell too.
+# Otherwise `brew trust` saves to `~/.homebrew/` instead of `~/.config/homebrew/`,
+# splitting the trusted taps across 2 files.
+export XDG_CONFIG_HOME="$HOME/.config"
