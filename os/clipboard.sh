@@ -6,15 +6,15 @@ IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
 # DID NOT LIKE: Use Maccy clipboard manager.
-# brew-install-cask maccy
-# open-app Maccy
+# brew install --quiet --cask maccy
+# open -a Maccy
 
 # DID NOT LIKE: Collective (App Store). Its window looked wrong at my font size,
 # opened on the wrong screen, and hit 100% CPU / hung on startup.
 
 # DID NOT LIKE THAT MUCH: Install PopClip. NOTE: This is a paid app ($17) that can also be found on the App Store.
-# brew-install-cask popclip
-# open-app PopClip
+# brew install --quiet --cask popclip
+# open -a PopClip
 # Manual configuration.
 #   Click on the icon in the Toolbar
 #   Click on Enable PopClip

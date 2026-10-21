@@ -27,7 +27,7 @@ brew install --quiet googleworkspace-cli
 # GCP Console clicks. Run them after `brew install` completes:
 #
 #   1. Create a personal GCP project + OAuth client. This needs gcloud first:
-#        brew-install-cask google-cloud-sdk
+#        brew install --quiet --cask google-cloud-sdk
 #        gcloud init                     # log in with your personal Google account
 #        gws auth setup --project gws-cli-craigbuchek --login
 #
