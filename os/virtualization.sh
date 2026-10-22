@@ -34,9 +34,7 @@ wget -P ~/Downloads/ $DEBIAN_MIRROR/debian-cd/current/arm64/iso-cd/debian-12.1.0
 wget -P ~/Downloads/ $DEBIAN_MIRROR/debian-cd/current/arm64/iso-dvd/debian-12.1.0-arm64-DVD-1.iso
 
 # Install VirtualOS, which allows you to run MacOS VMs on your Mac.
-virtualOS_ID="$(mas search virtualOS | grep virtualOS | awk '{ print $1 }')"
-mas purchase "${virtualOS_ID}"
-mas install "${virtualOS_ID}"
+app-store-install 1614659226 virtualOS # virtualOS VM
 
 # Apple Containers, similar to Docker but built on top of Apple's virtualization framework.
 brew install --quiet container

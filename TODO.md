@@ -23,8 +23,6 @@
 Found by a VM test run; each one aborts its script.
 
 - `gemini-cli` is deprecated (to be disabled 2026-12-18).
-- `os/virtualization.sh` still installs virtualOS by searching its name; use
-  `app-store-install` with its App Store ID instead.
 
 ## Script Robustness
 
