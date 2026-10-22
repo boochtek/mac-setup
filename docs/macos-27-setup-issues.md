@@ -239,7 +239,7 @@ Fixed on the `macos-27-fixes` branch, unless noted:
 - **#55**: Setapp now starts at login via a script. The dangling "Install and
   configure Supercharge:" line is still there; it needs the actual steps.
 - `wkhtmltopdf` was also dropped from `dev/ruby.sh` (no longer in Homebrew; upstream is archived).
-  Replaced by WeasyPrint, installed in `misc/weasyprint.sh`.
+  Replaced by WeasyPrint, installed in `misc/pdf.sh`.
 - Rectangle: macOS's own double-click setting is left at its default.
 - **G**: the 2 trust files were merged by hand into `~/.config/homebrew/trust.json`,
   and `~/.homebrew` is now a symlink to `~/.config/homebrew` (the config files'

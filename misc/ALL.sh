@@ -14,10 +14,10 @@ cd "$(dirname "$0")" || exit 1
 ./ms-office.sh
 ./paletro.sh
 ./pandoc.sh
+./pdf.sh
 ./raycast.sh
 ./search.sh
 ./setapp.sh
 ./video.sh
 ./voice.sh
-./weasyprint.sh
 ./email-sweep-schedule.sh
