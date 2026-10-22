@@ -8,7 +8,7 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 source "${BASH_SOURCE%/*}/../util/apps.sh"
 
 # I'd really rather not install this.
-return 0;
+exit 0
 
 ## Pandoc -- universal document converter
 
