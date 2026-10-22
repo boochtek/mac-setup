@@ -83,9 +83,10 @@ These may be in Karabiner, or maybe just Mac key bindings.
 - Decide whether `~/.config/homebrew/` (it holds `brew trust`'s `trust.json`)
   should be committed to the config files repo, or ignored.
 - `defaults+` segfaults when reading a top-level (non-nested) key.
-- `os/defaults+.sh` makes `/usr/local/bin` group-writable (`root:staff g+w`), so
-  anything in the staff group can replace `defaults+` or `karabiner` there.
-  Now that uv runs `defaults+`, consider installing it in `~/.local/bin` instead.
+- Earlier runs of `os/defaults+.sh` made `/usr/local/bin` group-writable
+  (`root:staff g+w`), so anything in the staff group can replace `karabiner`
+  there. It no longer does; on a Mac that ran the old version, undo it with
+  `sudo chmod g-w /usr/local/bin`.
 - `HOMEBREW_NO_ASK` is also set for interactive shells (config files), so typos
   in `brew install` no longer get a confirmation prompt.
 - Figure out how to restore from backups.
