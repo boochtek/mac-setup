@@ -7,8 +7,6 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 
 source "${BASH_SOURCE%/*}/../util/apps.sh"
 
----
-
 # Install Emacs (GUI and CLI).
 brew-install-cask emacs
 
