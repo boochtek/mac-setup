@@ -10,7 +10,8 @@ export SYSTEM_SERIAL_NUMBER='HD92KMVMMV'
 ACTUAL_SERIAL_NUMBER="$(system_profiler SPHardwareDataType | awk -F ': ' '/Serial Number/ {print $2}')"
 if [[ "$SYSTEM_SERIAL_NUMBER" != "$ACTUAL_SERIAL_NUMBER" ]]; then
     echo "Expected serial number $SYSTEM_SERIAL_NUMBER, but it's actually $ACTUAL_SERIAL_NUMBER."
-    exit 127
+    # This file is sourced (by init.sh), so `exit` would close the shell.
+    return 127
 fi
 
 # System name and hostname.
