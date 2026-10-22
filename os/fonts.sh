@@ -78,7 +78,6 @@ brew install --quiet --cask font-luxurious-script
 brew install --quiet --cask font-monoid
 # Mononoki is a font "for programming and code review".
 brew install --quiet --cask font-mononoki
-brew install --quiet --cask font-noto-mono
 brew install --quiet --cask font-noto-music
 brew install --quiet --cask font-noto-sans
 brew install --quiet --cask font-noto-sans-display
@@ -112,9 +111,7 @@ brew install --quiet --cask font-new-york
 brew install --quiet --cask font-sometype-mono
 brew install --quiet --cask font-source-code-pro
 brew install --quiet --cask font-source-sans-3
-brew install --quiet --cask font-source-sans-pro
 brew install --quiet --cask font-source-serif-4
-brew install --quiet --cask font-source-serif-pro
 brew install --quiet --cask font-stix
 brew install --quiet --cask font-stix-two-math
 brew install --quiet --cask font-stix-two-text

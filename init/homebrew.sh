@@ -69,9 +69,6 @@ fi
 # Check for configuration issues.
 brew doctor
 
-# Install command-not-found support, to tell us how to install missing commands.
-brew tap homebrew/command-not-found
-
 # Install tools that setup scripts use before the script that installs them runs:
 # `mas` (App Store), `dockutil` (Dock), `git-lfs` (some taps), `wget` (downloads),
 # and `uv` (Python). (The config files configure git to use git-lfs.)

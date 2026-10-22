@@ -9,7 +9,6 @@ cd "$(dirname "$0")" || exit 1
 ./neovim.sh
 ./vim.sh
 ./emacs.sh
-./atom.sh
 ./rubymine.sh
 ./obsidian.sh
 ./markdown.sh

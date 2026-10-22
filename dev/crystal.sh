@@ -9,5 +9,5 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 # TODO: Make sure Shard is included.
 
 ## Crystal is a Ruby-like lanugage, compiled, with type inference.
-brew install crystal-lang --with-llvm
+brew install --quiet crystal
 

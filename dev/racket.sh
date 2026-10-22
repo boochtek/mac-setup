@@ -11,7 +11,7 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 ## Racket is a superset of Scheme, that allows defining other languages (per module).
 
 # Install only the `racket` and `raco` executables; no DrRacket IDE.
-brew install plt-racket
+brew install --quiet minimal-racket
 
 # Install extended REPL library, so we can use Readline.
 # NOTE: You'll want `(require xrepl)` in your `~/.racketrc` file to enable this.

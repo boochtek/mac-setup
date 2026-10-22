@@ -22,19 +22,9 @@
 
 Found by a VM test run; each one aborts its script.
 
-- `homebrew/command-not-found` tap is deprecated and now empty
-  (`init/homebrew.sh`).
-- `pidof` was disabled upstream 2026-01-12 (`os/misc.sh`).
 - `gemini-cli` is deprecated (to be disabled 2026-12-18).
 - `os/virtualization.sh` still installs virtualOS by searching its name; use
   `app-store-install` with its App Store ID instead.
-- No longer in Homebrew (found 2026-10-19; not yet hit, since earlier failures
-  stopped those scripts first):
-    - casks `font-noto-mono`, `font-source-sans-pro`, `font-source-serif-pro`
-      (`os/fonts.sh`; probably superseded by `font-noto-sans-mono`,
-      `font-source-sans-3`, `font-source-serif-4`)
-    - cask `atom` (`editors/atom.sh`; discontinued)
-    - formulae `crystal-lang` (now `crystal`) and `plt-racket` (`dev/`)
 
 ## Script Robustness
 

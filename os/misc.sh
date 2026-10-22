@@ -72,9 +72,6 @@ brew install --quiet bat
 # fzf is a great fuzzy file-finder.
 brew install --quiet fzf
 
-# Pidof allows finding a process by name, similar to `pgrep` or `kill`.
-brew install pidof
-
 # Watch will continuously run a command.
 #brew install watch # WARNING: Installation is currently broken.
 
