@@ -25,11 +25,6 @@ Found by a VM test run; each one aborts its script.
 - `homebrew/command-not-found` tap is deprecated and now empty
   (`init/homebrew.sh`).
 - `pidof` was disabled upstream 2026-01-12 (`os/misc.sh`).
-- `os/quicklook.sh` aborts at the first disabled cask. Disabled 2026-09-27:
-  `qlstephen`, `qlcolorcode`, `qlprettypatch`, `quicklook-csv`, `webpquicklook`,
-  `avifquicklook`; disabled 2025-12-23: `quicklook-json`. (Quick Look generators
-  no longer load on macOS 15+ anyway.) Its QLStephen and QLColorCode plist edits
-  also run before those casks are installed.
 - `gemini-cli` is deprecated (to be disabled 2026-12-18).
 - `os/virtualization.sh` still installs virtualOS by searching its name; use
   `app-store-install` with its App Store ID instead.
