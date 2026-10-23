@@ -205,7 +205,8 @@ triggers. Tools that several scripts use (`mas`, `dockutil`, `git-lfs`, `wget`,
 `uv`) are installed by `init/homebrew.sh`.
 
 **Keep re-runs quiet.** Use `brew install --quiet`, so already-installed
-packages don't each print a warning. When restarting Finder, the Dock, or
+packages don't each print a warning, and `wget --quiet` (or `curl --silent`) for
+downloads, so they don't print progress bars. When restarting Finder, the Dock, or
 SystemUIServer so new settings take effect, use
 `killall Finder 2>/dev/null || true`: macOS relaunches them on its own, so a
 second restart may find nothing to kill.
