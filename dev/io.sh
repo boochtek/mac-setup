@@ -13,4 +13,4 @@ source "${BASH_SOURCE%/*}/../util/apps.sh"
 # Install the required XQuartz first. NOTE: Requires password interactively.
 brew-install-cask xquartz
 # Install the language itself.
-brew install io
+brew install --quiet io

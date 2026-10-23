@@ -36,7 +36,7 @@ brew install --quiet lftp
 brew install --quiet nmap
 
 # Iftop shows network usage, similar to how `top` shows CPU usage.
-brew install iftop
+brew install --quiet iftop
 sudo chown root:wheel "$HOMEBREW_PREFIX"/Cellar/iftop/*/sbin/iftop
 sudo chmod u+s "$HOMEBREW_PREFIX"/Cellar/iftop/*/sbin/iftop
 

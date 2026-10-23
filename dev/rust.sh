@@ -8,5 +8,5 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 # TODO: Install via mise.
 
 ## Rust
-brew install rust
-brew install rustup
+brew install --quiet rust
+brew install --quiet rustup

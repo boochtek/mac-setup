@@ -8,4 +8,4 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 # TODO: Install via ASDF.
 
 ## Elm
-brew install elm
+brew install --quiet elm

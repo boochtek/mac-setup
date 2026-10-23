@@ -45,14 +45,14 @@ brew install --quiet oven-sh/bun/bun
 brew install --quiet opencode
 
 # GitHub Copilot CLI. We also have the VS Code extension.
-brew install copilot-cli copilot-language-server
+brew install --quiet copilot-cli copilot-language-server
 
 # Google Gemini.
-brew install gemini-cli
+brew install --quiet gemini-cli
 
 # Google Workspace CLI. Access Gmail, Calendar, Drive, Docs, Sheets, etc.
 # Great for automating tasks via AI agents.
-brew install googleworkspace-cli
+brew install --quiet googleworkspace-cli
 
 # Ollama. Allows running various LLMs on your local hardware.
 brew-install-cask ollama

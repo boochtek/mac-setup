@@ -8,7 +8,7 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 ## Tools to work with files and file formats.
 
 # Midnight Commander (mc) is a visual (TUI) file manager, a clone of Norton Commander.
-brew install midnight-commander
+brew install --quiet midnight-commander
 
 # NNN is another TUI file manager, but with a different design philosophy.
 brew install --quiet nnn

@@ -14,7 +14,7 @@ defaults write com.apple.appstore 'ShowDebugMenu' -bool TRUE
 ## NOTE: You may be prompted (via GUI) to sign into the Mac App Store.
 
 # Install MAS.
-brew install mas
+brew install --quiet mas
 
 # Install Bear note-taking app. Start it at login and now.
 app-store-install 1091189122 Bear # Bear: Markdown Notes

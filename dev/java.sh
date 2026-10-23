@@ -13,4 +13,4 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 # You'll need to set `JAVA_HOME` and `PATH`, to choose anything other than the system-supplied Java.
 
 ## Install the latest OpenJDK.
-brew install openjdk
+brew install --quiet openjdk

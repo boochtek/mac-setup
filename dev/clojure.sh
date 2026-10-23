@@ -8,6 +8,6 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 # TODO: Install via ASDF.
 
 ## Clojure
-brew install leiningen
+brew install --quiet leiningen
 # TODO: follow the tutorial: https://github.com/technomancy/leiningen/blob/stable/doc/TUTORIAL.md
 # TODO: To play around with Clojure run `lein repl` or `lein help`.

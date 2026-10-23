@@ -14,10 +14,10 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 ## Installation
 
 # Install from Homebrew, so we get the latest version.
-brew install vim
+brew install --quiet vim
 
 # Install ctags, to generate indexes to allow us to easily locate things by name.
-brew install ctags
+brew install --quiet ctags
 
 # Install and update Vundle plugins. (Assumes .vimrc loads Vumdle and lists plugins.)
 vim -c 'VundleInstall' -c 'VundleUpdate' -c 'qa!'

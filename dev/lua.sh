@@ -9,7 +9,7 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 
 ## Lua
 # Lua is used by our Hammerspoon and Neovim configs.
-brew install lua
+brew install --quiet lua
 
 # LuaRocks is Lua's package manager.
-brew install luarocks
+brew install --quiet luarocks

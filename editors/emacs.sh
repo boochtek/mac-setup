@@ -17,7 +17,7 @@ brew install --cask --quiet font-noto-color-emoji
 dockutil --add  '/Applications/Emacs.app' --replacing 'Emacs' --after 'Visual Studio Code'
 
 # Spacemacs uses Source Code Pro by default.
-brew install --cask font-source-code-pro
+brew install --quiet --cask font-source-code-pro
 
 # Install Spacemacs (which is just )
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d

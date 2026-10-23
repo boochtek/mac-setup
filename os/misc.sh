@@ -17,13 +17,13 @@ sudo -n true 2>/dev/null || sudo -v
 ## Install some command-line utilities that we like to have.
 
 # Ack is great for searching for things within a repo.
-brew install ack
+brew install --quiet ack
 
 # The Silver Searcher (ag) is similar to Ack, newer and possibly better, but I still prefer Ack.
-brew install the_silver_searcher
+brew install --quiet the_silver_searcher
 
 # HTop is a really nice replacement for top.
-brew install htop
+brew install --quiet htop
 sudo chown root:wheel "$HOMEBREW_PREFIX"/Cellar/htop/*/bin/htop
 sudo chmod u+s "$HOMEBREW_PREFIX"/Cellar/htop/*/bin/htop
 
@@ -35,7 +35,7 @@ brew install --quiet glances
 brew install --quiet bottom
 
 # Tree is a nice tool to display a full directory hierarchy.
-brew install tree
+brew install --quiet tree
 
 # [`eza`](https://eza.rocks) is a command to replace `ls`, with more useful features, including a tree view.
 brew install --quiet eza
@@ -44,10 +44,10 @@ brew install --quiet eza
 brew install --quiet lsd
 
 # Pstree shows running processes as a tree, showing parent-child relationships.
-brew install pstree
+brew install --quiet pstree
 
 # Lesspipe is an input filter for `less`, allowing non-text files to be translated into text.
-brew install lesspipe #--syntax-highlighting
+brew install --quiet lesspipe #--syntax-highlighting
 # TODO: Make sure it's used by less automatically
 
 # Lesspipe uses mdcat to "syntax highlight" Markdown files.
@@ -76,15 +76,15 @@ brew install --quiet fzf
 #brew install watch # WARNING: Installation is currently broken.
 
 # PV (Pipe Viewer) can be used in shell pipelines to show a progress bar.
-brew install pv
+brew install --quiet pv
 
 # Occasionally we need to decompress FLAC and RAR files.
 # (`unar` replaces the `rar` cask, which Homebrew disabled for failing Gatekeeper.)
-brew install flac
-brew install unar
+brew install --quiet flac
+brew install --quiet unar
 
 # It's nice to occasionally show a fortune.
-brew install fortune
+brew install --quiet fortune
 
 # CLOC counts lines of code, broken down by language, with nice output.
 brew install --quiet cloc
@@ -99,11 +99,11 @@ brew install --quiet jless
 brew install --quiet gron
 
 # Install some linting tools.
-brew install proselint # English prose
+brew install --quiet proselint # English prose
 brew install --quiet markdownlint-cli2
-brew install libxml2 # xmllint
+brew install --quiet libxml2 # xmllint
 # npm install --global jsonlint
-brew install yamllint
+brew install --quiet yamllint
 npm install --global eslint
 brew install --quiet ansible-lint
 
@@ -154,7 +154,7 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow 'SHOWFULLNAME' -b
 
 ## TODO: Should we get (updated) GNU utilities?
 # Yes! Coreutils includes `nproc`, which I've seen used in scripts.
-brew install coreutils
+brew install --quiet coreutils
 # brew install findutils
 # brew tap homebrew/dupes
 # brew install homebrew/dupes/grep

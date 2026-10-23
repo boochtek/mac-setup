@@ -6,4 +6,4 @@ IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
 # TODO: Install via ASDF.
-brew install ocaml
+brew install --quiet ocaml

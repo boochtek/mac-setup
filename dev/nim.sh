@@ -12,6 +12,6 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 # NOTE: I'd prefer to install via Mise, but it's hanging on install.
 # NOTE: Tried `ASDF_NIM_REMOVE_TEMP=no ASDF_NIM_DEBUG=yes mise install nim@latest`
 #mise install nim@latest
-brew install nim
+brew install --quiet nim
 
 code --install-extension nimlang.nimlang
