@@ -47,4 +47,4 @@ qlmanage -r
 
 # Enable text selection in QuickLook views.
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE
-killall Finder
+killall Finder 2>/dev/null || true # It may not be running (yet).

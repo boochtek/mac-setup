@@ -28,8 +28,6 @@ Found by a VM test run; each one aborts its script.
 
 Found by a VM test run. Each aborts the rest of its script via the ERR trap.
 
-- `killall` fails when the process isn't running: `os/ui.sh` (SystemUIServer)
-  and `os/desktop.sh` (Finder). Should tolerate a missing process.
 - Installing the 1Password CLI cask can't write its zsh completions:
   `Operation not permitted @ dir_s_mkdir - /opt/homebrew/share/zsh`.
 - macOS Bash 3.2 runs the ERR trap for `$(cmd 2>/dev/null)` used as an `if`

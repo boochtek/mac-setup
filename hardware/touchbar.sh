@@ -60,7 +60,7 @@ plutil -replace MiniCustomized -json "$TOUCH_BAR_ITEMS" ~/Library/Preferences/co
 plutil -replace FullCustomized -json "$TOUCH_BAR_ITEMS_EXPANDED" ~/Library/Preferences/com.apple.controlstrip.plist
 
 # Restart Control Strip
-killall ControlStrip
+killall ControlStrip 2>/dev/null || true # It may not be running (yet).
 
 # FIXME: Not working. Show function keys instead of dynamic Touch Bar items.
 defaults write com.apple.touchbar.agent PresentationModeGlobal "workflowsWithControlStrip"

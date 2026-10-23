@@ -33,7 +33,7 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool TRUE
 ## Save screen captures in `Pictures/Screenshots` instead of `Desktop`.
 mkdir -p "$HOME/Pictures/Screenshots"
 defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
-killall SystemUIServer
+killall SystemUIServer 2>/dev/null || true # It may not be running (yet).
 
 ## Save screen captures as PNG format instead of TIFF.
 defaults write com.apple.screencapture type -string 'PNG'
@@ -42,7 +42,7 @@ defaults write com.apple.screencapture type -string 'PNG'
 defaults write com.apple.screencapture disable-shadow -bool TRUE
 
 ## Restart SystemUIServer, so changes to screen capture settings will take effect.
-killall SystemUIServer
+killall SystemUIServer 2>/dev/null || true # It may not be running (yet).
 
 ## Don't display "Application Downloaded from Internet".
 defaults write com.apple.LaunchServices LSQuarantine -bool FALSE

@@ -41,7 +41,7 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 defaults write NSGlobalDomain NSMenuEnableActionImages -bool false
 
 ## Allow MenuBar and menuextra changes to take effect.
-killall SystemUIServer
+killall SystemUIServer 2>/dev/null || true # It may not be running (yet).
 
 # The menu bar is made black via a black-topped wallpaper (hides the notch without
 # a background app); see desktop.sh.

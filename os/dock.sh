@@ -44,4 +44,4 @@ defaults write com.apple.ActivityMonitor IconType -int 6
 defaults write com.apple.Dock showhidden -bool TRUE
 
 ## Restart the Dock.
-killall Dock
+killall Dock 2>/dev/null || true # It may not be running (yet).

@@ -114,4 +114,4 @@ mysides add Recents 'file:///System/Library/CoreServices/Finder.app/Contents/Res
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Restart Finder so settings will take effect.
-killall Finder
+killall Finder 2>/dev/null || true # It may not be running (yet).

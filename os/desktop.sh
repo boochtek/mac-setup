@@ -58,7 +58,7 @@ else
 fi
 
 # Restart Finder so settings will take effect.
-killall Finder
+killall Finder 2>/dev/null || true # It may not be running (yet).
 
 # Install Rectangle window manager.
 brew-install-cask rectangle
