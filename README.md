@@ -84,8 +84,9 @@ source ./init.sh
 8. Install the rest.
 
 ~~~ shell
-email/ALL.sh
-work/ALL.sh
+./email/ALL.sh
+./misc/ALL.sh
+./personal/ALL.sh
 ~~~
 
 ## OLD!
