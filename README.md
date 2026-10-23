@@ -197,8 +197,18 @@ be in, so it works only by luck.
 flag on apps from official casks, so they open without a Gatekeeper prompt.
 `open-app` opens an app by its path, which works right after installing it.
 `app-store-install` installs an App Store app by its ID, and `add-login-item`
-starts an app at login. Tools that several scripts use (`mas`, `dockutil`,
-`git-lfs`, `wget`, `uv`) are installed by `init/homebrew.sh`.
+starts an app at login. `brew-trust --tap|--formula|--cask NAME` trusts a
+third-party tap's package only if it isn't already (plain `brew trust` says
+"Already trusted" on every re-run). `set-default-app BUNDLE_ID UTI...` makes an
+app the default for file types without the confirmation prompt that `duti -s`
+triggers. Tools that several scripts use (`mas`, `dockutil`, `git-lfs`, `wget`,
+`uv`) are installed by `init/homebrew.sh`.
+
+**Keep re-runs quiet.** Use `brew install --quiet`, so already-installed
+packages don't each print a warning. When restarting Finder, the Dock, or
+SystemUIServer so new settings take effect, use
+`killall Finder 2>/dev/null || true`: macOS relaunches them on its own, so a
+second restart may find nothing to kill.
 
 **A script that has nothing to do should `exit 0`, not `return`.** `return`
 outside a function is an error in an executed script — it only works when the
