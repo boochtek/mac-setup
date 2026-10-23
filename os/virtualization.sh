@@ -14,7 +14,7 @@ brew-install-cask utm
 open-app UTM
 
 # Use CrystalFetch to get latest Windows ISOs.
-wget https://github.com/TuringSoftware/CrystalFetch/releases/latest/download/CrystalFetch.dmg
+wget --quiet https://github.com/TuringSoftware/CrystalFetch/releases/latest/download/CrystalFetch.dmg
 hdiutil attach CrystalFetch.dmg
 cp -a /Volumes/CrystalFetch/CrystalFetch.app /Applications/
 hdiutil detach /Volumes/CrystalFetch
