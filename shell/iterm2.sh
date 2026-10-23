@@ -15,7 +15,7 @@ brew-install-cask iterm2
 ITERM_SHELL_INTEGRATION="${ITERM_SHELL_INTEGRATION-$XDG_DATA_HOME/iterm2}"
 mkdir -p "$ITERM_SHELL_INTEGRATION"
 for shell in bash zsh; do
-	wget "https://iterm2.com/shell_integration/$shell" -O "$ITERM_SHELL_INTEGRATION/iterm2_shell_integration.$shell"
+	wget --quiet "https://iterm2.com/shell_integration/$shell" -O "$ITERM_SHELL_INTEGRATION/iterm2_shell_integration.$shell"
 done
 
 # Add iTerm2 to the Dock. Allow time for it to get added before opening the app.

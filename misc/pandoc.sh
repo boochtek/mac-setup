@@ -25,7 +25,7 @@ brew-install-cask mactex
 # The Eisvogel template seems to be "the one to get".
 mkdir -p ~/.local/share/pandoc/templates
 cd ~/.local/share/pandoc/templates
-wget https://github.com/Wandmalfarbe/pandoc-latex-template/releases/download/v3.0.0/Eisvogel.tar.gz
+wget --quiet https://github.com/Wandmalfarbe/pandoc-latex-template/releases/download/v3.0.0/Eisvogel.tar.gz
 tar xfz Eisvogel.tar.gz
 rm Eisvogel.tar.gz
 mv Eisvogel-3.0.0/* .
