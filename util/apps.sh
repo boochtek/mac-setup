@@ -50,6 +50,40 @@ brew-trust() {
         brew trust "$kind" "$name"
 }
 
+# Make an app the default for file types (UTIs, like `public.json`), unless it
+# already is. `duti -s` makes macOS ask to confirm each change, so this writes the
+# Launch Services settings directly, then restarts its daemon to load them.
+set-default-app() {
+    local bundle_id="$1" rc=0
+    shift
+    /usr/bin/python3 - "$bundle_id" "$@" <<'PYTHON' || rc=$?
+import os, plistlib, sys
+path = os.path.expanduser('~/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist')
+bundle_id, utis = sys.argv[1].lower(), sys.argv[2:]
+try:
+    with open(path, 'rb') as f:
+        prefs = plistlib.load(f)
+except FileNotFoundError:
+    prefs = {}
+handlers = prefs.setdefault('LSHandlers', [])
+current = {h['LSHandlerContentType']: h.get('LSHandlerRoleAll') for h in handlers if 'LSHandlerContentType' in h}
+missing = [uti for uti in utis if current.get(uti) != bundle_id]
+if not missing:
+    sys.exit(3)  # Already set, so no need to restart Launch Services.
+handlers[:] = [h for h in handlers if h.get('LSHandlerContentType') not in missing]
+handlers += [{'LSHandlerContentType': uti, 'LSHandlerRoleAll': bundle_id,
+              'LSHandlerPreferredVersions': {'LSHandlerRoleAll': '-'}} for uti in missing]
+os.makedirs(os.path.dirname(path), exist_ok=True)
+with open(path, 'wb') as f:
+    plistlib.dump(prefs, f, fmt=plistlib.FMT_BINARY)
+PYTHON
+    case "$rc" in
+        0) killall -u "$USER" lsd 2>/dev/null || true ;; # It restarts on demand, with the new settings.
+        3) ;;
+        *) return "$rc" ;;
+    esac
+}
+
 # Install an App Store app by its ID, unless it's installed. Unlike `mas install`
 # (and `mas lucky`), `mas get` also gets free apps this Apple ID hasn't gotten.
 # IDs avoid ambiguous matches when searching by name.

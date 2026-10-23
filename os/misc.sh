@@ -5,6 +5,8 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 # Cache the sudo password.
 echo "$(tput setaf 4)You may be prompted for your sudo password.$(tput sgr0)"
 # Pre-authorize sudo. Skip the prompt when sudo is already passwordless, so
@@ -169,29 +171,20 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 # Disable Liquid Glass tab styling.
 defaults write -g NSSolariumWindowTabs -bool NO
 
-# Duti sets the default app for a file type, identified by a Uniform Type Identifier
-# (UTI) or filename extension. Make Zed the default editor for text, code, markup, and
-# data files. (Launch Services needs Zed registered, so this only takes effect once the
-# Zed cask from editors/zed.sh is installed.)
-brew install --quiet duti
+# Make Zed the default app for text, code, markup, and data files. (Launch Services
+# needs Zed registered, so this only takes effect once editors/zed.sh has installed it.)
+# HTML files stay with the default web browser. Zed already claims some other types
+# (like .rs, .go, .toml, .tsx) itself. TypeScript (.ts) files have the same type as
+# MPEG-2 transport stream videos, so those open in Zed too.
 if [[ -d "/Applications/Zed.app" ]]; then
-	# Broad text/markup/data categories, by UTI.
-	for uti in \
-		public.plain-text \
-		public.source-code \
-		public.shell-script \
-		net.daringfireball.markdown \
-		public.html \
-		public.xml \
-		public.json \
-		public.yaml; do
-		duti -s dev.zed.Zed "$uti" all || echo "  Could not set Zed as default for $uti."
-	done
-
-	# Programming-language and config files, by extension (each maps to its own type).
-	for ext in \
-		.js .jsx .ts .tsx .py .rb .rs .go \
-		.c .h .cpp .lua .sh .zsh .css .scss .toml .ini .conf; do
-		duti -s dev.zed.Zed "$ext" all || echo "  Could not set Zed as default for $ext."
-	done
+    set-default-app dev.zed.Zed \
+        public.plain-text public.source-code public.shell-script public.zsh-script \
+        net.daringfireball.markdown public.xml public.json public.yaml public.patch-file \
+        com.netscape.javascript-source public.python-script public.ruby-script \
+        public.c-source public.c-header public.c-plus-plus-source org.lua.lua-source \
+        public.css com.barebones.bbedit.scss-source com.microsoft.ini org.sbarex.conf \
+        public.mpeg-2-transport-stream
 fi
+
+# Duti shows the default app for a file type, as in `duti -x md`.
+brew install --quiet duti
