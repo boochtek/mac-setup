@@ -10,6 +10,10 @@ trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' 
 brew install --quiet bash
 
 # Install Bash command-line completion. (Version 2 is for Bash 4.2+; plain bash-completion is for Bash 3.)
+# They conflict, so remove the old one first, if an earlier run installed it.
+if brew list --versions bash-completion >/dev/null; then
+    brew uninstall --quiet bash-completion
+fi
 brew install --quiet bash-completion@2
 
 # Allow Homebrew version of Bash to be used as login shell.
