@@ -16,7 +16,8 @@ explain-terminal-permissions() {
 }
 
 # Fail unless this terminal has Full Disk Access, which writing settings for
-# Accessibility, Safari, and Mail requires. Opens System Settings to grant it.
+# Accessibility, Safari, and Mail requires. Opens its System Settings pane,
+# since it can't be granted from the command line.
 require-full-disk-access() {
     has-full-disk-access && return
     {

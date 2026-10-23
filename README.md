@@ -17,7 +17,23 @@ This is because many of the scripts use `sudo` to install various programs and s
 
 ## Usage
 
-0. Open a Terminal window.
+0. Open a Terminal window, and give the Terminal app the permissions setup needs.
+    - There's no way to grant these from the command line, but these commands
+      open the right System Settings panes. Run one, turn on Terminal, then the other.
+    - **Full Disk Access**, to change protected settings:
+
+    ~~~ shell
+    open 'x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles'
+    ~~~
+
+    - **App Management**, to update and unquarantine apps:
+
+    ~~~ shell
+    open 'x-apple.systempreferences:com.apple.preference.security?Privacy_AppBundles'
+    ~~~
+
+    - Then quit and reopen Terminal.
+    - Do the same for Ghostty and iTerm later, if you run setup from them.
 
 1. Make sure git is installed.
 
@@ -46,9 +62,7 @@ nano ENV.sh
 
 4. Run the initialization.
     - This will install CLT, Homebrew, and my config files.
-    - The terminal app needs Full Disk Access (and App Management) first:
-      System Settings > Privacy & Security. If it lacks it, this says so, opens
-      System Settings, and stops; quit and reopen the terminal after granting it.
+    - It stops if the terminal lacks Full Disk Access (see step 0).
     - On a Mac with Touch ID, it first enables Touch ID for `sudo`, so the one
       password prompt it takes to set that up is the only one you'll need.
 
