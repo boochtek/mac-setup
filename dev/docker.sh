@@ -42,9 +42,9 @@ brew install --quiet kubernetes-cli
 brew install --quiet kubectx
 
 # Install some TUI apps to get info on Kubernetes clusters.
-brew trust --formula vladimirvivien/oss-tools/ktop
+brew-trust --formula vladimirvivien/oss-tools/ktop
 brew install --quiet vladimirvivien/oss-tools/ktop
-brew trust --formula kdash-rs/kdash/kdash
+brew-trust --formula kdash-rs/kdash/kdash
 brew install --quiet kdash-rs/kdash/kdash
 
 # NOTE: I installed these extensions in Docker Desktop:

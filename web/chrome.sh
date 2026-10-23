@@ -22,7 +22,7 @@ dockutil --add '/Applications/Google Chrome.app' --replacing 'Google Chrome' --b
 
 # Install `extension` utility to install Chrome (or Edge or Arc) extensions from CLI.
 # NOTE: Use `extension listen chrome` to listen for config changes.
-brew trust --formula 8ta4/extension/extension
+brew-trust --formula 8ta4/extension/extension
 brew install --quiet 8ta4/extension/extension
 
 # Install Chrome extensions.

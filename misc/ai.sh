@@ -73,7 +73,7 @@ ollama pull glm-4.7-flash   # Zhipu GLM-4.7 Flash 30B MoE (3B active) — strong
 
 # OMLX might be better though, using Apple's MLX (Ollama may now too):
 brew tap jundot/omlx
-brew trust --formula jundot/omlx/omlx
+brew-trust --formula jundot/omlx/omlx
 brew install --quiet omlx
 
 # TODO: Kimi K2.6 — #1 open-source LiveBench Coding, needs 128+ GB RAM

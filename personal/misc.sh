@@ -8,8 +8,10 @@ IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 [[ -n "${DEBUG+unset}" ]] && set -x
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 brew tap boochtek/tap
-brew trust boochtek/tap
+brew-trust --tap boochtek/tap
 
 brew install --quiet boochtek/tap/path
 brew install --quiet boochtek/tap/lessfilter

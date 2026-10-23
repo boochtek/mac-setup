@@ -36,6 +36,20 @@ unquarantine-app() {
         echo "WARNING: Could not unquarantine $1. Give this terminal App Management permission." >&2
 }
 
+# Trust a third-party `--tap`, `--formula`, or `--cask`, unless it already is.
+# (`brew trust` otherwise prints "Already trusted", even with `--quiet`.)
+brew-trust() {
+    local kind="$1" name="${2:-}" list
+    case "$kind" in
+        --tap) list=taps ;;
+        --formula) list=formulae ;;
+        --cask) list=casks ;;
+        *) echo "brew-trust: expected --tap, --formula, or --cask, not '$kind'" >&2; return 2 ;;
+    esac
+    brew trust --json=v1 | jq -e --arg list "$list" --arg name "$name" '.[$list] | index($name) != null' >/dev/null ||
+        brew trust "$kind" "$name"
+}
+
 # Install an App Store app by its ID, unless it's installed. Unlike `mas install`
 # (and `mas lucky`), `mas get` also gets free apps this Apple ID hasn't gotten.
 # IDs avoid ambiguous matches when searching by name.

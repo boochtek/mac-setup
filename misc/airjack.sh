@@ -6,6 +6,8 @@ IFS=$'\n\t'
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 [[ -n "${DEBUG+unset}" ]] && set -x
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 # AirJack — WiFi handshake capture + cracking, for auditing your OWN networks.
 # https://github.com/rtulke/AirJack
 # Opt-in: deliberately NOT wired into misc/ALL.sh. Run it by hand when you want it.
@@ -27,7 +29,7 @@ AIRJACK_DIR="$HOME/.local/share/airjack"
 # Homebrew refuses to run a third-party tap's formula code until it's trusted.
 # The airsnare formula is a checksummed tarball build (reviewed before adding this).
 brew tap rtulke/airsnare
-brew trust rtulke/airsnare
+brew-trust --tap rtulke/airsnare
 brew install --quiet airsnare hashcat hcxtools
 
 # Fetch AirJack's source at the pinned commit. Idempotent: clone once, then sync.

@@ -13,7 +13,7 @@ source "${BASH_SOURCE%/*}/../util/apps.sh"
 
 # Dependencies / nice-to-have.
 brew-install-cask microsoft-auto-update
-brew trust --cask niksy/pljoska/font-microsoft-cleartype-family
+brew-trust --cask niksy/pljoska/font-microsoft-cleartype-family
 brew install --quiet niksy/pljoska/font-microsoft-cleartype-family
 
 # Install individual Office apps.

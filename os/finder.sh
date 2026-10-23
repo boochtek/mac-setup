@@ -5,6 +5,8 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 ## Configure Finder the way we want it.
 
 ## Many of these settings come from https://github.com/mathiasbynens/dotfiles/blob/master/.osx.
@@ -80,7 +82,7 @@ defaults write com.apple.finder FK_SidebarWidth -int 175
 
 # Set the favorites in the side bar of Finder windows, as well as Open/Save dialogs.
 # Homebrew disabled the original mysides; this is a maintained rewrite with the same commands.
-brew trust --formula 7onnie/tap/mysides
+brew-trust --formula 7onnie/tap/mysides
 brew install --quiet 7onnie/tap/mysides
 # Oddly, AirDrop is named `/` here. Home is displayed with the username, not "Home".
 # Removing an item that isn't in the sidebar fails, so ignore failures.

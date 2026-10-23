@@ -5,11 +5,13 @@ IFS=$'\n\t'
 [[ -n "${DEBUG+unset}" ]] && set -x
 trap 'RC=$? ; echo "$0: Error on line "$LINENO": $BASH_COMMAND" >&2 ; exit $RC' ERR
 
+source "${BASH_SOURCE%/*}/../util/apps.sh"
+
 brew install --quiet fontconfig
 brew install --quiet svn # required to install some fonts
 
 ## Install additional fonts.
-brew trust --cask niksy/pljoska/font-microsoft-cleartype-family
+brew-trust --cask niksy/pljoska/font-microsoft-cleartype-family
 brew install --quiet --cask niksy/pljoska/font-microsoft-cleartype-family
 brew install --quiet --cask font-comic-mono
 brew install --quiet font-jetbrains-mono

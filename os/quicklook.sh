@@ -21,7 +21,7 @@ sudo -n true 2>/dev/null || sudo -v
 
 # Preview Markdown files.
 # brew-install-cask qlmarkdown
-brew trust --cask xykong/tap/flux-markdown
+brew-trust --cask xykong/tap/flux-markdown
 brew-install-cask xykong/tap/flux-markdown
 
 # Preview source code (and JSON, plist, and more) with syntax highlighting.
